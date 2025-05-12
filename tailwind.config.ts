@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Light Reset custom colors
+				"light-yellow": "#FEF7CD",
+				"light-orange": "#FEC6A1",
+				"light-peach": "#FDE1D3",
+				"bright-orange": "#F97316",
+				"sun-yellow": "#FACC15",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +91,44 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)"
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)"
+					}
+				},
+				'glow': {
+					"0%, 100%": {
+						boxShadow: "0 0 15px rgba(249, 115, 22, 0.5)"
+					},
+					"50%": {
+						boxShadow: "0 0 30px rgba(249, 115, 22, 0.8)"
+					}
+				},
+				'pulse-light': {
+					"0%, 100%": {
+						opacity: "1"
+					},
+					"50%": {
+						opacity: "0.8"
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out',
+				'glow': 'glow 2s infinite',
+				'pulse-light': 'pulse-light 3s infinite'
+			},
+			backgroundImage: {
+				'sun-gradient': 'linear-gradient(90deg, hsla(39, 100%, 77%, 1) 0%, hsla(22, 90%, 57%, 1) 100%)',
+				'light-gradient': 'linear-gradient(180deg, rgb(254,100,121) 0%, rgb(251,221,186) 100%)'
 			}
 		}
 	},

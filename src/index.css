@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 25 95% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 39 100% 50%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 39 100% 93%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,24 +33,17 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 25 95% 53%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,32 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-[Poppins];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-bright-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-md transition-all shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-sun-yellow hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-md transition-all shadow-lg hover:shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-center;
+  }
+  
+  .section-description {
+    @apply text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center;
+  }
+  
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-lg;
   }
 }
