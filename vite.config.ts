@@ -5,14 +5,18 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  /* ── GitHub Pages settings ── */
+  base: "/light-reset-glow-up/", // repo name between the slashes
+  build: { outDir: "docs" },     // emit static site into /docs
+  /* ─────────────────────────── */
+
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
