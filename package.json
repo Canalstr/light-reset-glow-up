@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "echo > docs/.nojekyll"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -79,14 +80,5 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
-}
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    /* NEW ↓↓↓ */
-    "postbuild": "echo > docs/.nojekyll"
   }
 }
