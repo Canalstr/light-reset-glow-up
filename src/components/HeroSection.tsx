@@ -67,13 +67,13 @@ const HeroSection: React.FC = () => {
                 className="relative aspect-video bg-gray-100 flex items-center justify-center group cursor-pointer"
                 onClick={handlePlayClick}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-light-peach to-light-orange opacity-30"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-sun-yellow/20 to-light-orange/30 opacity-40"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=1280" 
-                  alt="Video thumbnail showing light concept" 
+                  src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1280" 
+                  alt="Sunlight illuminating a beautiful landscape, representing the power of natural light on metabolism" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-30 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
                 <Button className="bg-white text-bright-orange rounded-full w-16 h-16 flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
                   <Play size={30} fill="currentColor" />
                 </Button>
