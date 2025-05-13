@@ -81,3 +81,12 @@
     "vite": "^5.4.1"
   }
 }
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    /* NEW ↓↓↓ */
+    "postbuild": "echo > docs/.nojekyll"
+  }
+}
