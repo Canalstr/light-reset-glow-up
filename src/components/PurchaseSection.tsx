@@ -62,14 +62,14 @@ const PurchaseSection: React.FC = () => {
                   <div className="text-center">
                     <p className="text-2xl mb-1">Special Launch Price</p>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">997 SAR</span>
+                      <span className="text-4xl font-bold">99 SAR</span>
                       <span className="text-sm"> one-time payment</span>
                     </div>
                     
                     <div className="mb-6">
-                      <p className="text-sm opacity-80 mb-1">Regular Price: <span className="line-through">1,497 SAR</span></p>
+                      <p className="text-sm opacity-80 mb-1">Regular Price: <span className="line-through">149 SAR</span></p>
                       <p className="inline-block bg-white text-bright-orange px-3 py-1 rounded-full text-sm font-semibold">
-                        Save 500 SAR Today
+                        Save 50 SAR Today
                       </p>
                     </div>
                     
