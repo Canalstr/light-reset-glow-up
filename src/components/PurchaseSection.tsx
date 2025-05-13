@@ -16,8 +16,8 @@ const PurchaseSection: React.FC = () => {
   ];
 
   const handlePurchase = () => {
-    // Replace with actual Whop integration link when available
-    window.open("https://whop.com/checkout/your-product-id", "_blank");
+    // Using the provided Whop checkout link
+    window.open("https://whop.com/checkout/plan_GwZw1m66mgm6Q/", "_blank");
   };
 
   return (

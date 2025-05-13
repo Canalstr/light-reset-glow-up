@@ -5,8 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const QuizSection: React.FC = () => {
   const openTypeform = () => {
-    // Replace with actual Typeform URL when available
-    window.open("https://yourquiz.typeform.com/to/xxxx", "_blank");
+    // Using the provided Typeform URL
+    window.open("https://form.typeform.com/to/dIDP5oRL", "_blank");
   };
 
   return (
