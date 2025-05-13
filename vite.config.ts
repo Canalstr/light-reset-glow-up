@@ -6,8 +6,8 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   /* ── GitHub Pages settings ── */
-  base: "/light-reset-glow-up/", // repo name between the slashes
-  build: { outDir: "docs" },     // emit static site into /docs
+  base: "/", // repo name between the slashes
+  build: { outDir: "docs" }, // keep docs/ for Pages
   /* ─────────────────────────── */
 
   server: {
