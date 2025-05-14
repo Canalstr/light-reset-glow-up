@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -95,6 +96,10 @@
     @apply bg-background text-foreground font-[Poppins];
   }
 
+  .lang-ar {
+    font-family: 'Tajawal', sans-serif;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
   }
@@ -119,5 +124,32 @@
   
   .card {
     @apply bg-white p-6 rounded-lg shadow-lg;
+  }
+
+  /* RTL Support */
+  .lang-ar .text-left {
+    text-align: right;
+  }
+  
+  .lang-ar .text-right {
+    text-align: left;
+  }
+  
+  .lang-ar .mr-2,
+  .lang-ar .mr-3,
+  .lang-ar .mr-4 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+    margin-left: 0.75rem;
+    margin-left: 1rem;
+  }
+  
+  .lang-ar .ml-2,
+  .lang-ar .ml-3,
+  .lang-ar .ml-4 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+    margin-right: 0.75rem;
+    margin-right: 1rem;
   }
 }

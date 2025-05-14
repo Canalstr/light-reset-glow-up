@@ -1,8 +1,12 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const Navbar: React.FC = () => {
+  const { t } = useLanguage();
+  
   const openTypeform = () => {
     window.open("https://form.typeform.com/to/dIDP5oRL", "_blank");
   };
@@ -13,16 +17,19 @@ const Navbar: React.FC = () => {
         <div className="flex items-center">
           <div className="flex items-center">
             <div className="h-8 w-8 bg-sun-gradient rounded-full animate-pulse-light mr-2"></div>
-            <span className="font-bold text-xl">The Light Reset</span>
+            <span className="font-bold text-xl">{t("light.reset")}</span>
           </div>
         </div>
-        <Button 
-          onClick={openTypeform}
-          className="bg-bright-orange hover:bg-orange-600" 
-          size="sm"
-        >
-          Take the Quiz
-        </Button>
+        <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <Button 
+            onClick={openTypeform}
+            className="bg-bright-orange hover:bg-orange-600" 
+            size="sm"
+          >
+            {t("take.quiz")}
+          </Button>
+        </div>
       </div>
     </nav>
   );

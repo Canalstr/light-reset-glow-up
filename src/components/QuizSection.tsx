@@ -2,8 +2,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const QuizSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const openTypeform = () => {
     // Using the provided Typeform URL
     window.open("https://form.typeform.com/to/dIDP5oRL", "_blank");
@@ -19,10 +22,10 @@ const QuizSection: React.FC = () => {
             <CardContent className="p-0">
               <div className="bg-gradient-to-r from-sun-yellow to-bright-orange p-8 text-white text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Discover Your Personal Light Reset Protocol
+                  {t("discover.personal")}
                 </h2>
                 <p className="text-lg md:text-xl mb-0">
-                  Find out how much weight you could lose with your custom light protocol
+                  {t("find.out")}
                 </p>
               </div>
               
@@ -32,37 +35,36 @@ const QuizSection: React.FC = () => {
                     <div className="w-16 h-16 bg-light-yellow rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl font-bold text-bright-orange">1</span>
                     </div>
-                    <p className="font-medium">Take the 60-second quiz</p>
+                    <p className="font-medium">{t("step1")}</p>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-light-yellow rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl font-bold text-bright-orange">2</span>
                     </div>
-                    <p className="font-medium">Get your personalized light protocol</p>
+                    <p className="font-medium">{t("step2")}</p>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-light-yellow rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl font-bold text-bright-orange">3</span>
                     </div>
-                    <p className="font-medium">Start losing weight in days</p>
+                    <p className="font-medium">{t("step3")}</p>
                   </div>
                 </div>
                 
                 <div className="text-center space-y-6">
                   <p className="text-gray-700">
-                    Your body is unique. By answering a few quick questions about your lifestyle, sleep patterns, and daily routine, 
-                    we'll create a personalized Light Reset Protocol specifically for you.
+                    {t("your.body")}
                   </p>
                   
                   <Button 
                     onClick={openTypeform} 
                     className="btn-primary animate-glow text-lg py-6 px-10"
                   >
-                    Take the 60-Second Quiz
+                    {t("take.60second")}
                   </Button>
                   
                   <p className="text-sm text-gray-500">
-                    Takes less than a minute. No obligation.
+                    {t("takes.less")}
                   </p>
                 </div>
               </div>

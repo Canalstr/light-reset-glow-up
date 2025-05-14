@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, X } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection: React.FC = () => {
+  const { t } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,18 +46,20 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Lose Up To <span className="text-bright-orange">10kg in 5 Weeks</span> Using Light Biology
+            {t("lose.weight").split("10kg")[0]}
+            <span className="text-bright-orange">10kg</span> 
+            {t("lose.weight").split("10kg")[1]}
           </h1>
           <p className="text-xl mb-8 text-gray-700">
-            The Revolutionary Approach Saudi Women Are Using to Reset Their Metabolism Without Changing Diet or Exercise
+            {t("revolutionary.approach")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button onClick={openTypeform} className="btn-primary flex items-center gap-2 text-lg">
-              Discover Your Light Protocol
+              {t("discover.protocol")}
               <ArrowDown size={18} />
             </Button>
             <Button variant="outline" className="border-bright-orange text-bright-orange hover:bg-light-peach" onClick={scrollToQuiz}>
-              Learn How It Works
+              {t("learn.how")}
             </Button>
           </div>
         </div>
@@ -79,7 +83,7 @@ const HeroSection: React.FC = () => {
                 </Button>
                 
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
-                  <h3 className="text-xl md:text-2xl font-semibold">The Light Secret: How Natural Light Patterns Transform Your Metabolism</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold">{t("light.secret")}</h3>
                 </div>
               </div>
             ) : (
@@ -110,7 +114,7 @@ const HeroSection: React.FC = () => {
             )}
           </div>
           <div className="absolute -bottom-5 -right-5 bg-sun-yellow rounded-full p-4 shadow-lg">
-            <p className="text-sm font-bold">Up to 10kg in 5 weeks</p>
+            <p className="text-sm font-bold">{t("lose.weight").split("Using")[0]}</p>
           </div>
         </div>
       </div>
