@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
           {/* --- NEW COMPLIANT HEADLINE --- */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Change Your <span className="text-bright-orange">Light</span>, Unlock{" "}
-            <span className="text-bright-orange">Weight-Loss</span>
+            <span className="text-bright-orange">Well-Being</span>
           </h1>
 
           <p className="text-xl mb-8 text-gray-700">{t("revolutionary.approach")}</p>
