@@ -41,8 +41,8 @@ const VSLSection: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-sun-yellow/30 to-light-orange/20"></div>
               <img 
-                src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&q=80&w=1470" 
-                alt="Bright sunlight illuminating a beautiful sunny landscape" 
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1280" 
+                alt="Sunlight illuminating a beautiful landscape, representing the power of natural light on metabolism" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
