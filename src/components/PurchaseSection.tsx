@@ -3,10 +3,13 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PurchaseSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const features = [
-    "Complete 5-Week Light Reset Protocol",
+    t("feature1"),
     "Personalized Light Timing Recommendations",
     "Daily Implementation Guides",
     "Progress Tracking Templates",
@@ -25,9 +28,9 @@ const PurchaseSection: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-sun-yellow opacity-5 z-0"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-title">Start Your Light Reset Journey Today</h2>
+        <h2 className="section-title">{t("start.journey")}</h2>
         <p className="section-description">
-          Invest in a metabolic transformation that works with your body, not against it
+          {t("invest.in")}
         </p>
         
         <div className="max-w-4xl mx-auto">
@@ -35,9 +38,9 @@ const PurchaseSection: React.FC = () => {
             <CardContent className="p-0">
               <div className="md:flex">
                 <div className="md:w-7/12 p-8">
-                  <h3 className="text-2xl font-bold mb-2">The Complete Light Reset System</h3>
+                  <h3 className="text-2xl font-bold mb-2">{t("complete.system")}</h3>
                   <p className="text-gray-600 mb-6">
-                    Everything you need to reset your metabolism using light biology
+                    {t("everything.you.need")}
                   </p>
                   
                   <div className="space-y-3 mb-8">
@@ -60,16 +63,16 @@ const PurchaseSection: React.FC = () => {
                 
                 <div className="md:w-5/12 bg-gradient-to-br from-bright-orange to-sun-yellow p-8 text-white flex flex-col justify-center">
                   <div className="text-center">
-                    <p className="text-2xl mb-1">Special Launch Price</p>
+                    <p className="text-2xl mb-1">{t("special.launch")}</p>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">99 SAR</span>
-                      <span className="text-sm"> one-time payment</span>
+                      <span className="text-4xl font-bold">{t("price")}</span>
+                      <span className="text-sm"> {t("one.time")}</span>
                     </div>
                     
                     <div className="mb-6">
-                      <p className="text-sm opacity-80 mb-1">Regular Price: <span className="line-through">149 SAR</span></p>
+                      <p className="text-sm opacity-80 mb-1">{t("regular.price")} <span className="line-through">149 SAR</span></p>
                       <p className="inline-block bg-white text-bright-orange px-3 py-1 rounded-full text-sm font-semibold">
-                        Save 50 SAR Today
+                        {t("save.today")}
                       </p>
                     </div>
                     
@@ -77,11 +80,11 @@ const PurchaseSection: React.FC = () => {
                       onClick={handlePurchase} 
                       className="w-full bg-white text-bright-orange hover:bg-light-yellow hover:text-bright-orange text-lg py-6"
                     >
-                      Start Your Light Reset Journey
+                      {t("start.your")}
                     </Button>
                     
                     <p className="mt-4 text-sm opacity-80">
-                      Secure payment via credit card or Apple Pay
+                      {t("secure.payment")}
                     </p>
                   </div>
                 </div>

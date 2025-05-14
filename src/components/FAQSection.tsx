@@ -7,16 +7,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const faqs = [
     {
-      question: "How exactly does the Light Reset protocol work?",
-      answer: "The Light Reset works by strategically exposing you to specific types of light at optimal times throughout the day. This resets your circadian rhythm, which controls your metabolism, hunger hormones, and fat-burning processes. By aligning your light exposure with your body's natural rhythms, you can boost metabolism without changing diet or exercise."
+      question: t("faq1.q"),
+      answer: t("faq1.a")
     },
     {
-      question: "Do I really not need to change my diet or exercise routine?",
-      answer: "Correct! The Light Reset protocol works independently of diet and exercise by optimizing your body's natural metabolic processes through light exposure. While healthy eating and movement are always beneficial, this protocol focuses specifically on using light biology to reset your metabolism. Many users find that their natural appetite regulation improves, making healthier food choices easier."
+      question: t("faq2.q"),
+      answer: t("faq2.a")
     },
     {
       question: "How much time will I need to commit each day?",
@@ -45,7 +48,7 @@ const FAQSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center mb-8">
           <HelpCircle className="h-8 w-8 text-bright-orange mr-2" />
-          <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">{t("faq")}</h2>
         </div>
         
         <div className="max-w-3xl mx-auto">

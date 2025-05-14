@@ -2,8 +2,11 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Clock, Book } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CourseOverviewSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const weeklyContent = [
     {
       week: "Week 1",

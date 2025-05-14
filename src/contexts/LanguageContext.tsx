@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "en" | "ar";
@@ -50,7 +49,7 @@ const translations = {
   },
   "discover.patterns": {
     en: "Discover how natural light patterns can transform your metabolism and help you lose weight",
-    ar: "اكتشف كيف يمكن لأنماط الضوء الطبيعي أن تحول عملية التمثيل الغذائي لديك وتساعدك على إنقاص الوزن"
+    ar: "اكتشف كيف يمكن أن أنماط الضوء الطبيعي أن تحول عملية التمثيل الغذائي لديك وتساعدك على إنقاص الوزن"
   },
   "vsl.quote": {
     en: "Discover the revolutionary approach that's helping Saudi women reset their metabolism without changing diet or exercise. The Light Reset protocol works with your body's natural biology.",
@@ -300,7 +299,7 @@ const translations = {
     en: "99 SAR",
     ar: "٩٩ ريال سعودي"
   },
-  "one.time": {
+  "one-time": {
     en: "one-time payment",
     ar: "دفعة واحدة"
   },

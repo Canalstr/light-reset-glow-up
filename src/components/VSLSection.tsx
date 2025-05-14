@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, X } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const VSLSection: React.FC = () => {
+  const { t } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,9 +30,9 @@ const VSLSection: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-2">Watch How The Light Reset Works</h2>
+        <h2 className="section-title mb-2">{t("watch.how")}</h2>
         <p className="section-description mb-10">
-          Discover how natural light patterns can transform your metabolism and help you lose weight
+          {t("discover.patterns")}
         </p>
         
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
@@ -51,7 +53,7 @@ const VSLSection: React.FC = () => {
               </Button>
               
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
-                <h3 className="text-xl md:text-2xl font-semibold">The Light Secret: How Natural Light Patterns Transform Your Metabolism</h3>
+                <h3 className="text-xl md:text-2xl font-semibold">{t("light.secret")}</h3>
               </div>
             </div>
           ) : (
@@ -84,7 +86,7 @@ const VSLSection: React.FC = () => {
         
         <div className="mt-8 text-center max-w-2xl mx-auto">
           <p className="text-gray-700 italic">
-            "Discover the revolutionary approach that's helping Saudi women reset their metabolism without changing diet or exercise. The Light Reset protocol works with your body's natural biology."
+            {t("vsl.quote")}
           </p>
         </div>
       </div>

@@ -1,32 +1,35 @@
 
 import React from "react";
 import { Check } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BenefitsSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const benefits = [
     {
-      title: "Lose up to 10kg in 5 weeks",
-      description: "The Light Reset protocol activates your body's natural fat-burning processes through precisely timed light exposure",
+      title: t("benefit1.title"),
+      description: t("benefit1.desc"),
       icon: "scale"
     },
     {
-      title: "Reduced hunger & cravings in 7-10 days",
-      description: "Experience noticeably fewer cravings as your light-regulated hormones restore natural hunger signals",
+      title: t("benefit2.title"),
+      description: t("benefit2.desc"),
       icon: "clock"
     },
     {
-      title: "Improved energy throughout the day",
-      description: "Feel consistently energetic with naturally aligned circadian rhythms - no more afternoon slumps",
+      title: t("benefit3.title"),
+      description: t("benefit3.desc"),
       icon: "energy"
     },
     {
-      title: "Enhanced sleep quality",
-      description: "Wake up refreshed after deeper, more restorative sleep due to properly balanced melatonin production",
+      title: t("benefit4.title"),
+      description: t("benefit4.desc"),
       icon: "sleep"
     },
     {
-      title: "Natural metabolism regulation",
-      description: "Help your body naturally optimize fat-burning without artificial supplements or extreme diets",
+      title: t("benefit5.title"),
+      description: t("benefit5.desc"),
       icon: "metabolism"
     }
   ];
@@ -37,9 +40,9 @@ const BenefitsSection: React.FC = () => {
       <div className="absolute bottom-0 left-0 -mb-32 -ml-32 w-96 h-96 bg-light-peach rounded-full opacity-30"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="section-title">Benefits of The Light Reset</h2>
+        <h2 className="section-title">{t("benefits.of")}</h2>
         <p className="section-description">
-          Experience these transformative benefits without changing your diet or exercise routine
+          {t("experience.benefits")}
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
@@ -60,10 +63,9 @@ const BenefitsSection: React.FC = () => {
         </div>
 
         <div className="mt-16 max-w-2xl mx-auto bg-light-yellow rounded-lg p-6 text-center">
-          <h3 className="text-xl font-bold mb-2">All Without Changing Your Diet or Exercise Routine</h3>
+          <h3 className="text-xl font-bold mb-2">{t("without.changing")}</h3>
           <p className="text-gray-700">
-            The Light Reset works with your current lifestyle and daily habits. It's about when you expose 
-            yourself to different types of light, not about restrictive diets or exhausting workouts.
+            {t("light.reset.works")}
           </p>
         </div>
       </div>
