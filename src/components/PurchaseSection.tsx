@@ -72,7 +72,7 @@ const PurchaseSection: React.FC = () => {
                     <div className="mb-6">
                       <p className="text-sm opacity-80 mb-1">{t("regular.price")} <span className="line-through">48 EUR</span></p>
                       <p className="inline-block bg-white text-bright-orange px-3 py-1 rounded-full text-sm font-semibold">
-                        {t("save.today")}
+                        Save 16 EUR Today
                       </p>
                     </div>
                     
