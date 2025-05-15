@@ -1,6 +1,7 @@
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Language = "en" | "ar";
+type Language = "en" | "de";
 
 interface LanguageContextType {
   language: Language;
@@ -12,340 +13,340 @@ interface LanguageContextType {
 const translations = {
   // Navbar
   "light.reset": {
-    en: "The Light Reset",
-    ar: "إعادة ضبط الضوء"
+    en: "THE LIGHT RESET",
+    de: "THE LIGHT RESET"
   },
   "take.quiz": {
     en: "Take the Quiz",
-    ar: "خذ الاختبار"
+    de: "Quiz machen"
   },
   
   // Hero Section
   "lose.weight": {
-    en: "Lose Up To 10kg in 5 Weeks Using Light Biology",
-    ar: "فقدان ما يصل إلى 10 كجم في 5 أسابيع باستخدام بيولوجيا الضوء"
+    en: "Super-Charge Your Energy, Sleep & Focus in 5 Weeks",
+    de: "Optimiere deine Energie, deinen Schlaf und deine Konzentration in 5 Wochen"
   },
   "revolutionary.approach": {
-    en: "The Revolutionary Approach Saudi Women Are Using to Reset Their Metabolism Without Changing Diet or Exercise",
-    ar: "النهج الثوري الذي تستخدمه النساء السعوديات لإعادة ضبط التمثيل الغذائي دون تغيير النظام الغذائي أو التمارين"
+    en: "The Revolutionary Approach German Women Are Using to Reset Their Body Clock Without Drastic Lifestyle Changes",
+    de: "Der revolutionäre Ansatz, mit dem deutsche Frauen ihre innere Uhr zurücksetzen, ohne drastische Änderungen des Lebensstils"
   },
   "discover.protocol": {
     en: "Discover Your Light Protocol",
-    ar: "اكتشف بروتوكول الضوء الخاص بك"
+    de: "Entdecke dein Licht-Protokoll"
   },
   "learn.how": {
     en: "Learn How It Works",
-    ar: "تعرف على كيفية عمله"
+    de: "Erfahre wie es funktioniert"
   },
   "light.secret": {
-    en: "The Light Secret: How Natural Light Patterns Transform Your Metabolism",
-    ar: "سر الضوء: كيف تحول أنماط الضوء الطبيعي عملية التمثيل الغذائي لديك"
+    en: "The Light Secret: How Natural Light Patterns Transform Your Energy & Focus",
+    de: "Das Licht-Geheimnis: Wie natürliche Lichtmuster deine Energie & Konzentration steigern"
   },
   
   // VSL Section
   "watch.how": {
     en: "Watch How The Light Reset Works",
-    ar: "شاهد كيف يعمل إعادة ضبط الضوء"
+    de: "Schau dir an, wie The Light Reset funktioniert"
   },
   "discover.patterns": {
-    en: "Discover how natural light patterns can transform your metabolism and help you lose weight",
-    ar: "اكتشف كيف يمكن أن أنماط الضوء الطبيعي أن تحول عملية التمثيل الغذائي لديك وتساعدك على إنقاص الوزن"
+    en: "Discover how natural light patterns can transform your energy, sleep quality, and mental focus",
+    de: "Entdecke, wie natürliche Lichtmuster deine Energie, Schlafqualität und mentale Konzentration verbessern können"
   },
   "vsl.quote": {
-    en: "Discover the revolutionary approach that's helping Saudi women reset their metabolism without changing diet or exercise. The Light Reset protocol works with your body's natural biology.",
-    ar: "اكتشف النهج الثوري الذي يساعد النساء السعوديات على إعادة ضبط التمثيل الغذائي دون تغيير النظام الغذائي أو ممارسة الرياضة. يعمل بروتوكول إعادة ضبط الضوء مع بيولوجيا جسمك الطبيعية."
+    en: "Discover the revolutionary approach that's helping German women reset their body clock without drastic lifestyle changes. The Light Reset protocol works with your body's natural biology.",
+    de: "Entdecke den revolutionären Ansatz, der deutschen Frauen hilft, ihre innere Uhr zurückzusetzen, ohne drastische Änderungen des Lebensstils. Das Light Reset Protokoll arbeitet mit der natürlichen Biologie deines Körpers."
   },
   
   // Problem Solution Section
   "why.fail": {
-    en: "Why Traditional Weight Loss Methods Fail",
-    ar: "لماذا تفشل طرق فقدان الوزن التقليدية"
+    en: "Why Traditional Energy & Sleep Solutions Fail",
+    de: "Warum traditionelle Energie- und Schlaflösungen scheitern"
   },
   "modern.lighting": {
-    en: "Modern lighting disrupts your natural metabolism - but there's a solution",
-    ar: "الإضاءة الحديثة تعطل عملية التمثيل الغذائي الطبيعية - ولكن هناك حل"
+    en: "Modern lighting disrupts your natural circadian rhythm - but there's a solution",
+    de: "Moderne Beleuchtung stört deinen natürlichen zirkadianen Rhythmus - aber es gibt eine Lösung"
   },
   "the.problem": {
     en: "The Problem",
-    ar: "المشكلة"
+    de: "Das Problem"
   },
   "the.solution": {
     en: "The Solution",
-    ar: "الحل"
+    de: "Die Lösung"
   },
   "problem1": {
     en: "Artificial lighting disrupts your circadian rhythm, the body's natural 24-hour cycle",
-    ar: "الإضاءة الاصطناعية تعطل إيقاعك اليومي، الدورة الطبيعية للجسم على مدار 24 ساعة"
+    de: "Künstliches Licht stört deinen zirkadianen Rhythmus, den natürlichen 24-Stunden-Zyklus des Körpers"
   },
   "problem2": {
-    en: "Blue light from screens and LEDs triggers hormonal imbalances that cause fat storage",
-    ar: "الضوء الأزرق من الشاشات ومصابيح LED يسبب اختلالات هرمونية تؤدي إلى تخزين الدهون"
+    en: "Blue light from screens and LEDs triggers hormonal imbalances that cause energy crashes and poor sleep",
+    de: "Blaues Licht von Bildschirmen und LEDs löst hormonelle Ungleichgewichte aus, die zu Energieabstürzen und schlechtem Schlaf führen"
   },
   "problem3": {
-    en: "Poor light exposure decreases leptin (the fullness hormone) and increases ghrelin (hunger hormone)",
-    ar: "التعرض السيء للضوء يقلل من اللبتين (هرمون الشبع) ويزيد من الجريلين (هرمون الجوع)"
+    en: "Poor light exposure decreases melatonin (the sleep hormone) and increases cortisol at the wrong times",
+    de: "Schlechte Lichtexposition verringert Melatonin (das Schlafhormon) und erhöht Cortisol zu falschen Zeiten"
   },
   "problem4": {
-    en: "Modern indoor lifestyle in Saudi Arabia limits natural light exposure, disrupting metabolism",
-    ar: "نمط الحياة الداخلي الحديث في المملكة العربية السعودية يحد من التعرض للضوء الطبيعي، مما يعطل عملية التمثيل الغذائي"
+    en: "Modern indoor lifestyle in Germany, especially during winter, limits natural light exposure, disrupting focus and energy",
+    de: "Moderner Indoor-Lebensstil in Deutschland, besonders im Winter, begrenzt die natürliche Lichtexposition und stört Konzentration und Energie"
   },
   "solution1": {
-    en: "The Light Reset protocol realigns your body with natural light patterns, resetting your metabolism",
-    ar: "يعيد بروتوكول إعادة ضبط الضوء مواءمة جسمك مع أنماط الضوء الطبيعية، مما يعيد ضبط التمثيل الغذائي لديك"
+    en: "The Light Reset protocol realigns your body with natural light patterns, resetting your circadian rhythm",
+    de: "Das Light Reset-Protokoll richtet deinen Körper wieder an natürlichen Lichtmustern aus und setzt deinen zirkadianen Rhythmus zurück"
   },
   "solution2": {
-    en: "Strategic light exposure activates your body's natural fat-burning mechanisms throughout the day",
-    ar: "التعرض الاستراتيجي للضوء ينشط آليات حرق الدهون الطبيعية في جسمك طوال اليوم"
+    en: "Strategic light exposure activates your body's natural energy production throughout the day",
+    de: "Strategische Lichtexposition aktiviert die natürliche Energieproduktion deines Körpers während des Tages"
   },
   "solution3": {
-    en: "Light timing techniques balance your hunger hormones, reducing cravings without changing your diet",
-    ar: "تقنيات توقيت الضوء توازن هرمونات الجوع لديك، مما يقلل من الرغبة الشديدة دون تغيير نظامك الغذائي"
+    en: "Light timing techniques balance your hormones, improving sleep quality and mental clarity",
+    de: "Lichtzeitgebungstechniken balancieren deine Hormone und verbessern die Schlafqualität und geistige Klarheit"
   },
   "solution4": {
-    en: "Customized to Saudi climate and lifestyle, working with your daily routine rather than disrupting it",
-    ar: "مخصص للمناخ ونمط الحياة السعودي، يعمل مع روتينك اليومي بدلاً من تعطيله"
+    en: "Customized to German climate and lifestyle, working with your daily routine rather than disrupting it",
+    de: "Angepasst an das deutsche Klima und den Lebensstil, arbeitet mit deiner täglichen Routine, anstatt sie zu stören"
   },
   "how.affects": {
-    en: "How Light Affects Your Metabolism",
-    ar: "كيف يؤثر الضوء على عملية التمثيل الغذائي لديك"
+    en: "How Light Affects Your Body Clock",
+    de: "Wie Licht deine innere Uhr beeinflusst"
   },
   "morning.light": {
-    en: "Morning light signals your body to activate metabolism, while avoiding artificial blue light in the evening helps your body produce melatonin for proper fat-burning during sleep.",
-    ar: "ضوء الصباح يشير لجسمك لتنشيط عملية التمثيل الغذائي، بينما تجنب الضوء الأزرق الاصطناعي في المساء يساعد جسمك على إنتاج الميلاتونين لحرق الدهون بشكل صحيح أثناء النوم."
+    en: "Morning light signals your body to boost energy and focus, while avoiding artificial blue light in the evening helps your body produce melatonin for proper sleep and recovery.",
+    de: "Morgenlicht signalisiert deinem Körper, Energie und Konzentration zu steigern, während das Vermeiden von künstlichem blauen Licht am Abend deinem Körper hilft, Melatonin für richtigen Schlaf und Erholung zu produzieren."
   },
   
   // Benefits Section
   "benefits.of": {
     en: "Benefits of The Light Reset",
-    ar: "فوائد إعادة ضبط الضوء"
+    de: "Vorteile von The Light Reset"
   },
   "experience.benefits": {
-    en: "Experience these transformative benefits without changing your diet or exercise routine",
-    ar: "جرب هذه الفوائد التحويلية دون تغيير نظامك الغذائي أو روتين التمارين الخاص بك"
+    en: "Experience these transformative benefits without drastic lifestyle changes",
+    de: "Erlebe diese transformativen Vorteile ohne drastische Änderungen des Lebensstils"
   },
   "benefit1.title": {
-    en: "Lose up to 10kg in 5 weeks",
-    ar: "فقدان ما يصل إلى 10 كجم في 5 أسابيع"
+    en: "Optimized energy levels throughout the day",
+    de: "Optimierte Energieniveaus den ganzen Tag über"
   },
   "benefit1.desc": {
-    en: "The Light Reset protocol activates your body's natural fat-burning processes through precisely timed light exposure",
-    ar: "بروتوكول إعادة ضبط الضوء ينشط عمليات حرق الدهون الطبيعية في جسمك من خلال التعرض للضوء في أوقات محددة بدقة"
+    en: "The Light Reset protocol activates your body's natural energy production through precisely timed light exposure",
+    de: "Das Light Reset-Protokoll aktiviert die natürliche Energieproduktion deines Körpers durch präzise getimte Lichtexposition"
   },
   "benefit2.title": {
-    en: "Reduced hunger & cravings in 7-10 days",
-    ar: "تقليل الجوع والرغبة الشديدة في 7-10 أيام"
+    en: "Enhanced mental focus & clarity in 7-10 days",
+    de: "Verbesserte mentale Konzentration & Klarheit in 7-10 Tagen"
   },
   "benefit2.desc": {
-    en: "Experience noticeably fewer cravings as your light-regulated hormones restore natural hunger signals",
-    ar: "اختبر رغبات شديدة أقل بشكل ملحوظ حيث تستعيد هرموناتك المنظمة بالضوء إشارات الجوع الطبيعية"
+    en: "Experience noticeably sharper thinking and improved productivity as your light-regulated hormones normalize",
+    de: "Erlebe spürbar schärferes Denken und verbesserte Produktivität, während sich deine lichtgesteuerten Hormone normalisieren"
   },
   "benefit3.title": {
-    en: "Improved energy throughout the day",
-    ar: "تحسين الطاقة طوال اليوم"
+    en: "Steady energy without afternoon slumps",
+    de: "Gleichmäßige Energie ohne Nachmittagstiefs"
   },
   "benefit3.desc": {
     en: "Feel consistently energetic with naturally aligned circadian rhythms - no more afternoon slumps",
-    ar: "اشعر بالنشاط باستمرار مع إيقاعات يومية متناسقة بشكل طبيعي - لا مزيد من الانخفاضات بعد الظهر"
+    de: "Fühle dich durchgehend energiegeladen mit natürlich ausgerichteten zirkadianen Rhythmen - keine Nachmittagstiefs mehr"
   },
   "benefit4.title": {
     en: "Enhanced sleep quality",
-    ar: "تعزيز جودة النوم"
+    de: "Verbesserte Schlafqualität"
   },
   "benefit4.desc": {
     en: "Wake up refreshed after deeper, more restorative sleep due to properly balanced melatonin production",
-    ar: "استيقظ منتعشًا بعد نوم أعمق وأكثر تجديدًا بسبب إنتاج الميلاتونين المتوازن بشكل صحيح"
+    de: "Wache erfrischt nach tieferem, erholsamerem Schlaf durch richtig ausbalancierte Melatoninproduktion auf"
   },
   "benefit5.title": {
-    en: "Natural metabolism regulation",
-    ar: "تنظيم التمثيل الغذائي الطبيعي"
+    en: "Natural mental performance optimization",
+    de: "Natürliche Optimierung der mentalen Leistungsfähigkeit"
   },
   "benefit5.desc": {
-    en: "Help your body naturally optimize fat-burning without artificial supplements or extreme diets",
-    ar: "ساعد جسمك على تحسين حرق الدهون بشكل طبيعي دون مكملات اصطناعية أو أنظمة غذائية قاسية"
+    en: "Help your body naturally optimize cognitive function without artificial supplements or stimulants",
+    de: "Hilf deinem Körper, die kognitive Funktion auf natürliche Weise zu optimieren, ohne künstliche Nahrungsergänzungsmittel oder Stimulanzien"
   },
   "without.changing": {
-    en: "All Without Changing Your Diet or Exercise Routine",
-    ar: "كل ذلك دون تغيير نظامك الغذائي أو روتين التمارين الرياضية"
+    en: "All Without Major Lifestyle Changes",
+    de: "Alles ohne große Änderungen des Lebensstils"
   },
   "light.reset.works": {
     en: "The Light Reset works with your current lifestyle and daily habits. It's about when you expose yourself to different types of light, not about restrictive diets or exhausting workouts.",
-    ar: "يعمل إعادة ضبط الضوء مع نمط حياتك الحالي وعاداتك اليومية. الأمر يتعلق بوقت تعرضك لأنواع مختلفة من الضوء، وليس بالأنظمة الغذائية المقيدة أو التمارين المرهقة."
+    de: "The Light Reset funktioniert mit deinem aktuellen Lebensstil und deinen täglichen Gewohnheiten. Es geht darum, wann du dich verschiedenen Lichttypen aussetzt, nicht um restriktive Diäten oder erschöpfende Workouts."
   },
   
   // Social Proof Section
   "hear.from": {
     en: "Hear From Women Just Like You",
-    ar: "اسمع من نساء مثلك تمامًا"
+    de: "Höre von Frauen wie dir"
   },
   "saudi.women": {
-    en: "These Saudi women discovered the power of The Light Reset protocol",
-    ar: "اكتشفت هؤلاء النساء السعوديات قوة بروتوكول إعادة ضبط الضوء"
+    en: "These German women discovered the power of The Light Reset protocol",
+    de: "Diese deutschen Frauen haben die Kraft des Light Reset-Protokolls entdeckt"
   },
   "fatima.quote": {
-    en: "I was skeptical at first, but after 4 weeks I lost 8kg without changing my diet. The afternoon energy boost was unexpected but so welcome!",
-    ar: "كنت متشككة في البداية، ولكن بعد 4 أسابيع فقدت 8 كجم دون تغيير نظامي الغذائي. كانت زيادة الطاقة بعد الظهر غير متوقعة ولكنها كانت مرحب بها!"
+    en: "I was skeptical at first, but after 4 weeks my energy levels completely transformed. I no longer need caffeine in the afternoon and my focus is sharper than ever!",
+    de: "Ich war zunächst skeptisch, aber nach 4 Wochen haben sich meine Energieniveaus komplett verändert. Ich brauche nachmittags kein Koffein mehr und meine Konzentration ist schärfer als je zuvor!"
   },
   "layla.quote": {
-    en: "As a busy mother, I don't have time for complicated diets. The Light Reset was simple to follow and I lost 6kg. My cravings disappeared within days.",
-    ar: "كأم مشغولة، ليس لدي وقت لأنظمة غذائية معقدة. كان إعادة ضبط الضوء بسيطًا للمتابعة وفقدت 6 كجم. اختفت رغباتي الشديدة في غضون أيام."
+    en: "As a busy professional, I don't have time for complicated routines. The Light Reset was simple to follow and I finally sleep through the night. My productivity has doubled.",
+    de: "Als vielbeschäftigte Berufstätige habe ich keine Zeit für komplizierte Routinen. The Light Reset war einfach zu befolgen und ich schlafe endlich durch. Meine Produktivität hat sich verdoppelt."
   },
   "nour.quote": {
-    en: "My metabolism had completely stalled due to years of dieting. This approach reset everything - I'm down 7kg and finally sleeping through the night.",
-    ar: "توقفت عملية التمثيل الغذائي لدي تمامًا بسبب سنوات من الحمية. أعاد هذا النهج ضبط كل شيء - فقدت 7 كجم وأخيرًا أنام طوال الليل."
+    en: "My focus had completely deteriorated working from home. This approach reset everything - I'm sleeping better and can concentrate for hours without mental fog.",
+    de: "Meine Konzentration hatte sich durch das Arbeiten von zu Hause völlig verschlechtert. Dieser Ansatz hat alles zurückgesetzt - ich schlafe besser und kann mich stundenlang ohne geistige Benommenheit konzentrieren."
   },
   "results.vary": {
     en: "*Results may vary from person to person based on individual factors.",
-    ar: "*قد تختلف النتائج من شخص لآخر بناءً على عوامل فردية."
+    de: "*Ergebnisse können von Person zu Person aufgrund individueller Faktoren variieren."
   },
   "scientific.background": {
     en: "Scientific Background",
-    ar: "الخلفية العلمية"
+    de: "Wissenschaftlicher Hintergrund"
   },
   "research1": {
-    en: "Research published in the International Journal of Obesity shows that light exposure timing directly affects metabolic function. Morning light exposure increases leptin sensitivity, helping you feel full longer.",
-    ar: "أظهرت الأبحاث المنشورة في المجلة الدولية للسمنة أن توقيت التعرض للضوء يؤثر بشكل مباشر على وظيفة التمثيل الغذائي. يزيد التعرض لضوء الصباح من حساسية اللبتين، مما يساعدك على الشعور بالشبع لفترة أطول."
+    en: "Research published in the Journal of Clinical Endocrinology & Metabolism shows that light exposure timing directly affects hormone production. Morning light exposure increases cortisol awakening response, helping you feel energetic.",
+    de: "Im Journal of Clinical Endocrinology & Metabolism veröffentlichte Forschung zeigt, dass der Zeitpunkt der Lichtexposition die Hormonproduktion direkt beeinflusst. Morgendliche Lichtexposition erhöht die Cortisol-Aufwachreaktion und hilft dir, dich energiegeladen zu fühlen."
   },
   "research2": {
-    en: "A 2019 study in the Journal of Pineal Research demonstrated that controlling blue light exposure in the evening improved metabolic markers in participants, with an average weight loss of 7% over 8 weeks without dietary changes.",
-    ar: "أظهرت دراسة أجريت عام 2019 في مجلة أبحاث الغدة الصنوبرية أن التحكم في التعرض للضوء الأزرق في المساء حسّن علامات التمثيل الغذائي لدى المشاركين، مع متوسط ​​فقدان الوزن بنسبة 7٪ على مدى 8 أسابيع دون تغييرات غذائية."
+    en: "A 2021 study in the Journal of Pineal Research demonstrated that controlling blue light exposure in the evening improved cognitive performance in participants, with 84% reporting better sleep quality within 2 weeks.",
+    de: "Eine 2021 im Journal of Pineal Research veröffentlichte Studie zeigte, dass die Kontrolle der Blaulichtexposition am Abend die kognitive Leistung der Teilnehmer verbesserte, wobei 84% innerhalb von 2 Wochen über eine bessere Schlafqualität berichteten."
   },
   "research3": {
-    en: "The Light Reset protocol is based on chronobiology principles, focusing on Saudi Arabia's unique light patterns to optimize your body's natural circadian rhythm and metabolism.",
-    ar: "يعتمد بروتوكول إعادة ضبط الضوء على مبادئ البيولوجيا الزمنية، مع التركيز على أنماط الضوء الفريدة في المملكة العربية السعودية لتحسين إيقاع الساعة البيولوجية الطبيعية للجسم وعملية التمثيل الغذائي."
+    en: "The Light Reset protocol is based on chronobiology principles, focusing on Germany's unique light patterns to optimize your body's natural circadian rhythm and cognitive performance.",
+    de: "Das Light Reset-Protokoll basiert auf chronobiologischen Prinzipien und konzentriert sich auf Deutschlands einzigartige Lichtmuster, um den natürlichen zirkadianen Rhythmus und die kognitive Leistung deines Körpers zu optimieren."
   },
   
   // Quiz Section
   "discover.personal": {
     en: "Discover Your Personal Light Reset Protocol",
-    ar: "اكتشف بروتوكول إعادة ضبط الضوء الشخصي الخاص بك"
+    de: "Entdecke dein persönliches Light Reset-Protokoll"
   },
   "find.out": {
-    en: "Find out how much weight you could lose with your custom light protocol",
-    ar: "اكتشف مقدار الوزن الذي يمكنك فقدانه مع بروتوكول الضوء المخصص لك"
+    en: "Find out how much your energy and focus could improve with your custom light protocol",
+    de: "Finde heraus, wie sehr sich deine Energie und Konzentration mit deinem individuellen Lichtprotokoll verbessern könnten"
   },
   "step1": {
     en: "Take the 60-second quiz",
-    ar: "خذ الاختبار لمدة 60 ثانية"
+    de: "Mache den 60-Sekunden-Quiz"
   },
   "step2": {
     en: "Get your personalized light protocol",
-    ar: "احصل على بروتوكول الضوء المخصص لك"
+    de: "Erhalte dein personalisiertes Lichtprotokoll"
   },
   "step3": {
-    en: "Start losing weight in days",
-    ar: "ابدأ في فقدان الوزن في أيام"
+    en: "Start feeling better in days",
+    de: "Beginne, dich innerhalb von Tagen besser zu fühlen"
   },
   "your.body": {
     en: "Your body is unique. By answering a few quick questions about your lifestyle, sleep patterns, and daily routine, we'll create a personalized Light Reset Protocol specifically for you.",
-    ar: "جسمك فريد من نوعه. من خلال الإجابة على بعض الأسئلة السريعة حول نمط حياتك وأنماط نومك وروتينك اليومي، سننشئ بروتوكول إعادة ضبط الضوء مخصصًا خصيصًا لك."
+    de: "Dein Körper ist einzigartig. Indem du einige schnelle Fragen zu deinem Lebensstil, Schlafmustern und täglicher Routine beantwortest, erstellen wir ein personalisiertes Light Reset-Protokoll speziell für dich."
   },
   "take.60second": {
     en: "Take the 60-Second Quiz",
-    ar: "خذ الاختبار لمدة 60 ثانية"
+    de: "Mache den 60-Sekunden-Quiz"
   },
   "takes.less": {
     en: "Takes less than a minute. No obligation.",
-    ar: "يستغرق أقل من دقيقة. لا التزام."
+    de: "Dauert weniger als eine Minute. Keine Verpflichtung."
   },
   
   // FAQ Section
   "faq": {
     en: "Frequently Asked Questions",
-    ar: "الأسئلة الشائعة"
+    de: "Häufig gestellte Fragen"
   },
   "faq1.q": {
     en: "How exactly does the Light Reset protocol work?",
-    ar: "كيف يعمل بروتوكول إعادة ضبط الضوء بالضبط؟"
+    de: "Wie funktioniert das Light Reset-Protokoll genau?"
   },
   "faq1.a": {
-    en: "The Light Reset works by strategically exposing you to specific types of light at optimal times throughout the day. This resets your circadian rhythm, which controls your metabolism, hunger hormones, and fat-burning processes. By aligning your light exposure with your body's natural rhythms, you can boost metabolism without changing diet or exercise.",
-    ar: "يعمل إعادة ضبط الضوء من خلال تعريضك استراتيجيًا لأنواع محددة من الضوء في أوقات مثالية طوال اليوم. هذا يعيد ضبط إيقاعك اليومي، الذي يتحكم في عملية التمثيل الغذائي وهرمونات الجوع وعمليات حرق الدهون. من خلال مواءمة تعرضك للضوء مع إيقاعات جسمك الطبيعية، يمكنك تعزيز عملية التمثيل الغذائي دون تغيير النظام الغذائي أو التمارين."
+    en: "The Light Reset works by strategically exposing you to specific types of light at optimal times throughout the day. This resets your circadian rhythm, which controls your energy levels, stress hormones, and sleep-wake cycle. By aligning your light exposure with your body's natural rhythms, you can boost energy and mental clarity without medication or supplements.",
+    de: "The Light Reset funktioniert, indem du strategisch zu optimalen Zeiten während des Tages bestimmten Lichttypen ausgesetzt wirst. Dies setzt deinen zirkadianen Rhythmus zurück, der deine Energieniveaus, Stresshormone und den Schlaf-Wach-Zyklus kontrolliert. Durch die Abstimmung deiner Lichtexposition mit den natürlichen Rhythmen deines Körpers kannst du Energie und geistige Klarheit ohne Medikamente oder Nahrungsergänzungsmittel steigern."
   },
   "faq2.q": {
-    en: "Do I really not need to change my diet or exercise routine?",
-    ar: "هل حقًا لا أحتاج إلى تغيير نظامي الغذائي أو روتين التمارين الخاص بي؟"
+    en: "Do I really not need to make major lifestyle changes?",
+    de: "Muss ich wirklich keine großen Änderungen an meinem Lebensstil vornehmen?"
   },
   "faq2.a": {
-    en: "Correct! The Light Reset protocol works independently of diet and exercise by optimizing your body's natural metabolic processes through light exposure. While healthy eating and movement are always beneficial, this protocol focuses specifically on using light biology to reset your metabolism. Many users find that their natural appetite regulation improves, making healthier food choices easier.",
-    ar: "صحيح! يعمل بروتوكول إعادة ضبط الضوء بشكل مستقل عن النظام الغذائي والتمارين من خلال تحسين عمليات التمثيل الغذائي الطبيعية في جسمك من خلال التعرض للضوء. في حين أن الأكل الصحي والحركة مفيدان دائمًا، يركز هذا البروتوكول بشكل خاص على استخدام بيولوجيا الضوء لإعادة ضبط التمثيل الغذائي لديك. يجد العديد من المستخدمين أن تنظيم شهيتهم الطبيعية يتحسن، مما يجعل اختيارات الطعام الصحية أسهل."
+    en: "Correct! The Light Reset protocol works by optimizing your existing routine through light exposure patterns. While healthy habits are always beneficial, this protocol focuses specifically on using light biology to reset your circadian rhythm. Many users find that their natural energy regulation improves, making healthier choices easier without feeling forced.",
+    de: "Richtig! Das Light Reset-Protokoll funktioniert, indem es deine bestehende Routine durch Lichtexpositionsmuster optimiert. Während gesunde Gewohnheiten immer vorteilhaft sind, konzentriert sich dieses Protokoll speziell darauf, die Lichtbiologie zu nutzen, um deinen zirkadianen Rhythmus zurückzusetzen. Viele Benutzer stellen fest, dass sich ihre natürliche Energieregulierung verbessert, was gesündere Entscheidungen einfacher macht, ohne dass sie sich gezwungen fühlen."
   },
   
   // Purchase Section
   "start.journey": {
     en: "Start Your Light Reset Journey Today",
-    ar: "ابدأ رحلة إعادة ضبط الضوء اليوم"
+    de: "Starte deine Light Reset-Reise heute"
   },
   "invest.in": {
-    en: "Invest in a metabolic transformation that works with your body, not against it",
-    ar: "استثمر في تحول التمثيل الغذائي الذي يعمل مع جسمك، وليس ضده"
+    en: "Invest in a biological transformation that works with your body, not against it",
+    de: "Investiere in eine biologische Transformation, die mit deinem Körper arbeitet, nicht gegen ihn"
   },
   "complete.system": {
     en: "The Complete Light Reset System",
-    ar: "نظام إعادة ضبط الضوء الكامل"
+    de: "Das komplette Light Reset-System"
   },
   "everything.you.need": {
-    en: "Everything you need to reset your metabolism using light biology",
-    ar: "كل ما تحتاجه لإعادة ضبط التمثيل الغذائي باستخدام بيولوجيا الضوء"
+    en: "Everything you need to reset your body clock using light biology",
+    de: "Alles, was du brauchst, um deine innere Uhr mit Lichtbiologie zurückzusetzen"
   },
   "feature1": {
     en: "Complete 5-Week Light Reset Protocol",
-    ar: "بروتوكول إعادة ضبط الضوء الكامل لمدة 5 أسابيع"
+    de: "Komplettes 5-Wochen-Light-Reset-Protokoll"
   },
   "special.launch": {
     en: "Special Launch Price",
-    ar: "سعر الإطلاق الخاص"
+    de: "Spezieller Einführungspreis"
   },
   "price": {
-    en: "99 SAR",
-    ar: "٩٩ ريال سعودي"
+    en: "99 EUR",
+    de: "99 EUR"
   },
   "one-time": {
     en: "one-time payment",
-    ar: "دفعة واحدة"
+    de: "einmalige Zahlung"
   },
   "regular.price": {
     en: "Regular Price:",
-    ar: "السعر العادي:"
+    de: "Regulärer Preis:"
   },
   "save.today": {
-    en: "Save 50 SAR Today",
-    ar: "وفر 50 ريال اليوم"
+    en: "Save 50 EUR Today",
+    de: "Spare heute 50 EUR"
   },
   "start.your": {
     en: "Start Your Light Reset Journey",
-    ar: "ابدأ رحلة إعادة ضبط الضوء الخاصة بك"
+    de: "Starte deine Light Reset-Reise"
   },
   "secure.payment": {
     en: "Secure payment via credit card or Apple Pay",
-    ar: "دفع آمن عبر بطاقة الائتمان أو Apple Pay"
+    de: "Sichere Zahlung per Kreditkarte oder Apple Pay"
   },
   
   // Footer
   "privacy.policy": {
     en: "Privacy Policy",
-    ar: "سياسة الخصوصية"
+    de: "Datenschutzrichtlinie"
   },
   "terms.of.service": {
     en: "Terms of Service",
-    ar: "شروط الخدمة"
+    de: "Nutzungsbedingungen"
   },
   "contact": {
     en: "Contact",
-    ar: "اتصل بنا"
+    de: "Kontakt"
   },
   "copyright": {
     en: "© 2025 The Light Reset. All rights reserved.",
-    ar: "© ٢٠٢٥ إعادة ضبط الضوء. جميع الحقوق محفوظة."
+    de: "© 2025 The Light Reset. Alle Rechte vorbehalten."
   },
   "disclaimer": {
     en: "Results may vary. This program is not intended to diagnose, treat, cure or prevent any disease. Always consult with your physician before starting any new health program.",
-    ar: "قد تختلف النتائج. هذا البرنامج ليس المقصود منه تشخيص أو علاج أو شفاء أو منع أي مرض. استشر طبيبك دائمًا قبل البدء في أي برنامج صحي جديد."
+    de: "Ergebnisse können variieren. Dieses Programm soll keine Krankheiten diagnostizieren, behandeln, heilen oder verhindern. Konsultieren Sie immer Ihren Arzt, bevor Sie ein neues Gesundheitsprogramm beginnen."
   },
   
   // Language Toggle
   "lang.toggle": {
-    en: "English | العربية",
-    ar: "English | العربية"
+    en: "English | Deutsch",
+    de: "English | Deutsch"
   }
 };
 
@@ -367,12 +368,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     // Save language to localStorage
     localStorage.setItem("language", language);
     
-    // Add or remove the lang-ar class to the body
-    if (language === "ar") {
-      document.body.classList.add("lang-ar");
-      document.documentElement.setAttribute("dir", "rtl");
+    // Add or remove the lang-de class to the body
+    if (language === "de") {
+      document.body.classList.add("lang-de");
+      document.documentElement.setAttribute("dir", "ltr");
     } else {
-      document.body.classList.remove("lang-ar");
+      document.body.classList.remove("lang-de");
       document.documentElement.setAttribute("dir", "ltr");
     }
   }, [language]);

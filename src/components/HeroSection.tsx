@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, X } from "lucide-react";
@@ -37,10 +38,9 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         {/* left column */}
         <div className="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
-          {/* --- NEW COMPLIANT HEADLINE --- */}
+          {/* --- UPDATED HEADLINE --- */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Change Your <span className="text-bright-orange">Light</span>, Unlock{" "}
-            <span className="text-bright-orange">Well-Being</span>
+            Reset Your <span className="text-bright-orange">Light</span>, Transform Your <span className="text-bright-orange">Life</span>
           </h1>
 
           <p className="text-xl mb-8 text-gray-700">{t("revolutionary.approach")}</p>
@@ -70,8 +70,8 @@ const HeroSection: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-sun-yellow/20 to-light-orange/30 opacity-40" />
                 <img
-                  src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1280"
-                  alt="Sunlight illuminating a beautiful landscape, representing the power of natural light on metabolism"
+                  src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1280"
+                  alt="Sunlight passing through trees, representing the power of natural light on energy and focus"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
