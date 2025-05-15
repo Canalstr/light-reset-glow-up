@@ -26,12 +26,12 @@ const FAQSection: React.FC = () => {
       answer: "The protocol requires minimal time commitment—just about 15 minutes of focused attention daily. Most of the techniques integrate seamlessly into your existing routine, like adjusting when you open your curtains or when you use certain lights in your home."
     },
     {
-      question: "Is this approach suitable for the Saudi climate and lifestyle?",
-      answer: "Absolutely! The Light Reset protocol has been specifically adapted for Saudi women, taking into account the unique climate, indoor lifestyle, and cultural considerations. It works within your existing daily routine and provides specific guidance for managing light exposure despite high outdoor temperatures and predominantly indoor living."
+      question: "Is this approach suitable for the German climate and lifestyle?",
+      answer: "Absolutely! The Light Reset protocol has been specifically adapted for German women, taking into account the unique climate, seasonal light variations, and predominantly indoor lifestyle during winter months. It works within your existing daily routine and provides specific guidance for managing light exposure despite limited natural light during certain seasons."
     },
     {
       question: "How quickly will I see results?",
-      answer: "Many women notice changes in their energy levels and hunger patterns within 7-10 days of starting the protocol. Weight loss typically begins within the first two weeks, with the most dramatic results occurring between weeks 3-5 as your body's metabolic systems fully reset."
+      answer: "Many women notice changes in their energy levels and sleep patterns within 7-10 days of starting the protocol. The most significant improvements typically occur between weeks 3-5 as your body's metabolic systems fully reset and adapt to optimized light exposure patterns."
     },
     {
       question: "Will I need to purchase special equipment?",

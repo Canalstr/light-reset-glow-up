@@ -9,25 +9,25 @@ const SocialProofSection: React.FC = () => {
   
   const testimonials = [
     {
-      name: "Fatima A.",
-      location: "Riyadh",
+      name: "Johanna K.",
+      location: "Munich",
       quote: t("fatima.quote"),
       stars: 5,
-      result: "Lost 8kg in 4 weeks"
+      result: "Better focus & energy in 4 weeks"
     },
     {
-      name: "Layla M.",
-      location: "Jeddah",
+      name: "Lisa M.",
+      location: "Berlin",
       quote: t("layla.quote"),
       stars: 5,
-      result: "Lost 6kg in 5 weeks"
+      result: "Improved sleep in 5 weeks"
     },
     {
-      name: "Nour S.",
-      location: "Dammam",
+      name: "Nina S.",
+      location: "Hamburg",
       quote: t("nour.quote"),
       stars: 4,
-      result: "Lost 7kg in 5 weeks"
+      result: "Enhanced productivity in 5 weeks"
     }
   ];
 

@@ -14,7 +14,7 @@ const PurchaseSection: React.FC = () => {
     "Daily Implementation Guides",
     "Progress Tracking Templates",
     "Troubleshooting Resources",
-    "Saudi-Specific Light Recommendations",
+    "Germany-Specific Light Recommendations",
     "Lifetime Access to All Materials"
   ];
 
@@ -55,7 +55,7 @@ const PurchaseSection: React.FC = () => {
                   <div className="bg-light-peach p-4 rounded-lg text-center mb-6">
                     <p className="text-sm">
                       <span className="font-semibold">Our Satisfaction Promise:</span> If you don't notice significant 
-                      improvements in your energy and hunger levels within 14 days, we'll work with you to adjust 
+                      improvements in your energy and focus levels within 14 days, we'll work with you to adjust 
                       your protocol or provide a full refund.
                     </p>
                   </div>
@@ -65,12 +65,12 @@ const PurchaseSection: React.FC = () => {
                   <div className="text-center">
                     <p className="text-2xl mb-1">{t("special.launch")}</p>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">{t("price")}</span>
+                      <span className="text-4xl font-bold">32 EUR</span>
                       <span className="text-sm"> {t("one.time")}</span>
                     </div>
                     
                     <div className="mb-6">
-                      <p className="text-sm opacity-80 mb-1">{t("regular.price")} <span className="line-through">149 SAR</span></p>
+                      <p className="text-sm opacity-80 mb-1">{t("regular.price")} <span className="line-through">48 EUR</span></p>
                       <p className="inline-block bg-white text-bright-orange px-3 py-1 rounded-full text-sm font-semibold">
                         {t("save.today")}
                       </p>
