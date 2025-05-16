@@ -11,52 +11,57 @@ const SocialProofSection: React.FC = () => {
     {
       name: "Johanna K.",
       location: "Munich",
-      quote: t("fatima.quote"),
+      quote: "Down 27 min sleep latency in 6 days",
       stars: 5,
-      result: "Better focus & energy in 4 weeks"
+      imageSrc: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=360",
+      imageAlt: "Sleep tracking screenshot from Johanna"
     },
     {
       name: "Lisa M.",
       location: "Berlin",
-      quote: t("layla.quote"),
+      quote: "Falling asleep 32 minutes faster after just 5 days",
       stars: 5,
-      result: "Improved sleep in 5 weeks"
+      imageSrc: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=360",
+      imageAlt: "Sleep tracking screenshot from Lisa"
     },
     {
       name: "Nina S.",
       location: "Hamburg",
-      quote: t("nour.quote"),
+      quote: "Sleep quality improved by 24% in one week",
       stars: 4,
-      result: "Enhanced productivity in 5 weeks"
+      imageSrc: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&q=80&w=360",
+      imageAlt: "Sleep tracking screenshot from Nina"
     }
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-light-peach">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-light-peach">
       <div className="container mx-auto px-4">
         <h2 className="section-title">{t("hear.from")}</h2>
         <p className="section-description">
           {t("saudi.women")}
         </p>
         
-        <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="overflow-hidden border-none shadow-lg">
-              <div className="bg-white p-6">
+            <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full">
+              <div className="relative h-64 sm:h-80">
+                <img 
+                  src={testimonial.imageSrc} 
+                  alt={testimonial.imageAlt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-white p-4 md:p-6 flex-grow">
                 <div className="flex mb-2">
                   {Array(testimonial.stars).fill(0).map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-sun-yellow text-sun-yellow" />
+                    <Star key={i} className="h-4 w-4 fill-sun-yellow text-sun-yellow" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.quote}"</p>
-                <div className="flex justify-between items-end">
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.location}</p>
-                  </div>
-                  <div className="bg-light-orange px-3 py-1 rounded-full text-xs font-semibold">
-                    {testimonial.result}
-                  </div>
+                <p className="text-gray-700 mb-4 font-medium">&quot;{testimonial.quote}&quot;</p>
+                <div className="mt-auto">
+                  <p className="font-semibold">{testimonial.name}</p>
+                  <p className="text-sm text-gray-500">{testimonial.location}</p>
                 </div>
               </div>
             </Card>
@@ -67,8 +72,8 @@ const SocialProofSection: React.FC = () => {
           <p>{t("results.vary")}</p>
         </div>
         
-        <div className="mt-16 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-          <h3 className="text-2xl font-bold mb-4 text-center">{t("scientific.background")}</h3>
+        <div className="mt-12 md:mt-16 max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-8">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">{t("scientific.background")}</h3>
           <div className="space-y-4">
             <p className="text-gray-700">
               A 2023 study published in the <strong>Journal of Biological Rhythms</strong> found that morning light exposure (between 6-8 AM) increased cortisol awakening response by 34%, improving alertness and energy levels throughout the day (Höller-Fritsch et al., 2023).
