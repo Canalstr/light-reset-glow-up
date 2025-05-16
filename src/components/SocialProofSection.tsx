@@ -11,26 +11,20 @@ const SocialProofSection: React.FC = () => {
     {
       name: "Johanna K.",
       location: "Munich",
-      quote: "Down 27 min sleep latency in 6 days",
-      stars: 5,
-      imageSrc: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=360",
-      imageAlt: "Sleep tracking screenshot from Johanna"
+      quote: t("johanna.quote"),
+      stars: 5
     },
     {
       name: "Lisa M.",
       location: "Berlin",
-      quote: "Falling asleep 32 minutes faster after just 5 days",
-      stars: 5,
-      imageSrc: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=360",
-      imageAlt: "Sleep tracking screenshot from Lisa"
+      quote: t("lisa.quote"),
+      stars: 5
     },
     {
       name: "Nina S.",
       location: "Hamburg",
-      quote: "Sleep quality improved by 24% in one week",
-      stars: 4,
-      imageSrc: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&q=80&w=360",
-      imageAlt: "Sleep tracking screenshot from Nina"
+      quote: t("nina.quote"),
+      stars: 4
     }
   ];
 
@@ -45,20 +39,13 @@ const SocialProofSection: React.FC = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg flex flex-col h-full">
-              <div className="relative h-64 sm:h-80">
-                <img 
-                  src={testimonial.imageSrc} 
-                  alt={testimonial.imageAlt}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="bg-white p-4 md:p-6 flex-grow">
+              <div className="p-6 md:p-8 bg-white flex-grow">
                 <div className="flex mb-2">
                   {Array(testimonial.stars).fill(0).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-sun-yellow text-sun-yellow" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 font-medium">&quot;{testimonial.quote}&quot;</p>
+                <p className="text-gray-700 mb-4 font-medium italic">"{testimonial.quote}"</p>
                 <div className="mt-auto">
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.location}</p>

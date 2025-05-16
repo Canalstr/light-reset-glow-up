@@ -22,6 +22,22 @@ const translations = {
   },
   
   // Hero Section
+  "nobel.science": {
+    en: "Backed by Nobel-Prize Winning Circadian Science",
+    de: "Basierend auf Nobelpreis-gekrönter Chronobiologie"
+  },
+  "sleep.faster": {
+    en: "Sleep 30 Min Faster in 5 Days - Using Only 10 Minutes of Morning Sunlight",
+    de: "Schlafe 30 Min schneller ein in 5 Tagen - mit nur 10 Minuten Morgensonne"
+  },
+  "no.pills": {
+    en: "No pills. No gadgets. Just a science-backed light habit you can start right now",
+    de: "Keine Pillen. Keine Geräte. Nur eine wissenschaftlich fundierte Lichtgewohnheit, die du sofort beginnen kannst"
+  },
+  "take.quiz.45": {
+    en: "Take the 45-Second Sleep-Light Quiz",
+    de: "Mache den 45-Sekunden Schlaf-Licht-Quiz"
+  },
   "lose.weight": {
     en: "Super-Charge Your Energy, Sleep & Focus in 5 Weeks",
     de: "Optimiere deine Energie, deinen Schlaf und deine Konzentration in 5 Wochen"
@@ -182,17 +198,17 @@ const translations = {
     en: "These German women discovered the power of The Light Reset protocol",
     de: "Diese deutschen Frauen haben die Kraft des Light Reset-Protokolls entdeckt"
   },
-  "fatima.quote": {
-    en: "I was skeptical at first, but after 4 weeks my energy levels completely transformed. I no longer need caffeine in the afternoon and my focus is sharper than ever!",
-    de: "Ich war zunächst skeptisch, aber nach 4 Wochen haben sich meine Energieniveaus komplett verändert. Ich brauche nachmittags kein Koffein mehr und meine Konzentration ist schärfer als je zuvor!"
+  "johanna.quote": {
+    en: "Down 27 min sleep latency in 6 days",
+    de: "27 Minuten schneller eingeschlafen in 6 Tagen"
   },
-  "layla.quote": {
-    en: "As a busy professional, I don't have time for complicated routines. The Light Reset was simple to follow and I finally sleep through the night. My productivity has doubled.",
-    de: "Als vielbeschäftigte Berufstätige habe ich keine Zeit für komplizierte Routinen. The Light Reset war einfach zu befolgen und ich schlafe endlich durch. Meine Produktivität hat sich verdoppelt."
+  "lisa.quote": {
+    en: "Falling asleep 32 minutes faster after just 5 days",
+    de: "32 Minuten schneller eingeschlafen nach nur 5 Tagen"
   },
-  "nour.quote": {
-    en: "My focus had completely deteriorated working from home. This approach reset everything - I'm sleeping better and can concentrate for hours without mental fog.",
-    de: "Meine Konzentration hatte sich durch das Arbeiten von zu Hause völlig verschlechtert. Dieser Ansatz hat alles zurückgesetzt - ich schlafe besser und kann mich stundenlang ohne geistige Benommenheit konzentrieren."
+  "nina.quote": {
+    en: "Sleep quality improved by 24% in one week",
+    de: "Schlafqualität um 24% verbessert in einer Woche"
   },
   "results.vary": {
     en: "*Results may vary from person to person based on individual factors.",
@@ -239,10 +255,6 @@ const translations = {
   "your.body": {
     en: "Your body is unique. By answering a few quick questions about your lifestyle, sleep patterns, and daily routine, we'll create a personalized Light Reset Protocol specifically for you.",
     de: "Dein Körper ist einzigartig. Indem du einige schnelle Fragen zu deinem Lebensstil, Schlafmustern und täglicher Routine beantwortest, erstellen wir ein personalisiertes Light Reset-Protokoll speziell für dich."
-  },
-  "take.60second": {
-    en: "Take the 60-Second Quiz",
-    de: "Mache den 60-Sekunden-Quiz"
   },
   "takes.less": {
     en: "Takes less than a minute. No obligation.",
@@ -309,8 +321,8 @@ const translations = {
     de: "Regulärer Preis:"
   },
   "save.today": {
-    en: "Save 50 EUR Today",
-    de: "Spare heute 50 EUR"
+    en: "Save 55 EUR Today",
+    de: "Spare heute 55 EUR"
   },
   "start.your": {
     en: "Start Your Light Reset Journey",

@@ -36,35 +36,25 @@ const HeroSection: React.FC = () => {
           <div className="w-full md:w-1/2 mb-10 md:mb-0 animate-fade-in">
             {/* Pre-headline */}
             <p className="text-bright-orange font-semibold mb-2 text-sm md:text-base">
-              Backed by Nobel-Prize Winning Circadian Science
+              {t("nobel.science")}
             </p>
             
             {/* Updated headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sleep 30 Min Faster in 5 Days - Using Only 10 Minutes of Morning Sunlight
+              {t("sleep.faster")}
             </h1>
 
             {/* New subheadline */}
             <p className="text-lg md:text-xl mb-6 text-gray-700">
-              No pills. No gadgets. Just a science-backed light habit you can start right now
+              {t("no.pills")}
             </p>
 
             {/* Updated CTA */}
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
               <Button onClick={openTypeform} className="btn-primary flex items-center gap-2 text-lg px-6 py-4">
-                Take the 45-Second Sleep-Light Quiz
+                {t("take.quiz.45")}
                 <ArrowDown size={18} />
               </Button>
-            </div>
-            
-            {/* Micro-credibility row */}
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 mt-4 mb-4">
-              <div className="text-sm text-gray-500 font-medium">As Seen On:</div>
-              <div className="flex flex-wrap gap-4 md:gap-6 items-center">
-                <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=80" alt="PubMed" className="h-6 md:h-8 opacity-70 grayscale hover:grayscale-0 transition-all" />
-                <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=80" alt="Huberman Lab" className="h-6 md:h-8 opacity-70 grayscale hover:grayscale-0 transition-all" />
-                <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=80" alt="Science" className="h-6 md:h-8 opacity-70 grayscale hover:grayscale-0 transition-all" />
-              </div>
             </div>
           </div>
 

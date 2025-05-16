@@ -60,7 +60,7 @@ const QuizSection: React.FC = () => {
                     onClick={openTypeform} 
                     className="btn-primary animate-glow text-lg py-6 px-6 md:px-10"
                   >
-                    Take the 45-Second Sleep-Light Quiz
+                    {t("take.quiz.45")}
                   </Button>
                   
                   <p className="text-sm text-gray-500">
