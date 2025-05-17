@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -19,6 +19,15 @@ const VSLSection: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    // Ensure video starts playing when it's ready
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -29,12 +38,18 @@ const VSLSection: React.FC = () => {
         
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
           <div className="relative aspect-[9/16] md:aspect-video bg-black">
-            <iframe
-              src="https://drive.google.com/file/d/1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN/preview?autoplay=1&mute=1"
-              className="w-full h-full"
-              allow="autoplay"
-              allowFullScreen
-            ></iframe>
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              autoPlay
+              playsInline
+              muted
+              loop
+              preload="auto"
+            >
+              <source src="/Schlaf-Quiz.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             
             {/* Sound toggle button */}
             <Button

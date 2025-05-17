@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Volume2, VolumeX } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -18,6 +18,15 @@ const HeroSection: React.FC = () => {
       setIsMuted(videoRef.current.muted);
     }
   };
+
+  useEffect(() => {
+    // Ensure video starts playing when it's ready
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-b from-light-yellow to-white pt-16">
@@ -57,12 +66,18 @@ const HeroSection: React.FC = () => {
           <div className="w-full md:w-1/2 relative">
             <div className="rounded-lg overflow-hidden shadow-xl animate-fade-in relative">
               <div className="relative aspect-[9/16] bg-gray-100">
-                <iframe
-                  src="https://drive.google.com/file/d/1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN/preview?autoplay=1&mute=1"
-                  className="w-full h-full"
-                  allow="autoplay"
-                  allowFullScreen
-                ></iframe>
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  playsInline
+                  muted
+                  loop
+                  preload="auto"
+                >
+                  <source src="/Schlaf-Quiz.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 
                 {/* Sound toggle button */}
                 <Button
