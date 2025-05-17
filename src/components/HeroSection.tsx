@@ -21,6 +21,7 @@ const HeroSection: React.FC = () => {
 
   // Extract video ID from the Google Drive link
   const videoId = "1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN";
+  const videoUrl = `https://drive.google.com/uc?export=download&id=${videoId}`;
 
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-b from-light-yellow to-white pt-16">
@@ -69,13 +70,15 @@ const HeroSection: React.FC = () => {
                   playsInline
                   poster="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1280"
                 >
-                  <source src={`https://drive.google.com/uc?export=download&id=${videoId}`} type="video/mp4" />
+                  <source src={videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
                 </video>
                 
                 {/* Sound toggle button */}
                 <Button
                   onClick={toggleMute}
                   className="absolute bottom-4 right-4 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 p-0 flex items-center justify-center shadow-md"
+                  aria-label={isMuted ? "Unmute" : "Mute"}
                 >
                   {isMuted ? <Volume2 size={16} /> : <VolumeX size={16} />}
                 </Button>
