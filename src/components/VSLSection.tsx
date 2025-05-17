@@ -19,11 +19,6 @@ const VSLSection: React.FC = () => {
     }
   };
 
-  // Fix: Update the video URL format for Google Drive
-  const videoId = "1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN";
-  // Use the direct streaming URL format
-  const videoUrl = `https://drive.google.com/file/d/${videoId}/preview`;
-
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -34,18 +29,12 @@ const VSLSection: React.FC = () => {
         
         <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
           <div className="relative aspect-[9/16] md:aspect-video bg-black">
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1280"
-            >
-              <source src={videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe
+              src="https://drive.google.com/file/d/1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN/preview?autoplay=1&mute=1"
+              className="w-full h-full"
+              allow="autoplay"
+              allowFullScreen
+            ></iframe>
             
             {/* Sound toggle button */}
             <Button

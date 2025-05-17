@@ -19,11 +19,6 @@ const HeroSection: React.FC = () => {
     }
   };
 
-  // Fix: Update the video URL format for Google Drive
-  const videoId = "1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN";
-  // Use the direct streaming URL format
-  const videoUrl = `https://drive.google.com/file/d/${videoId}/preview`;
-
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-b from-light-yellow to-white pt-16">
       {/* background blobs */}
@@ -62,18 +57,12 @@ const HeroSection: React.FC = () => {
           <div className="w-full md:w-1/2 relative">
             <div className="rounded-lg overflow-hidden shadow-xl animate-fade-in relative">
               <div className="relative aspect-[9/16] bg-gray-100">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=1280"
-                >
-                  <source src={videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  src="https://drive.google.com/file/d/1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN/preview?autoplay=1&mute=1"
+                  className="w-full h-full"
+                  allow="autoplay"
+                  allowFullScreen
+                ></iframe>
                 
                 {/* Sound toggle button */}
                 <Button
