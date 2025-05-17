@@ -8,8 +8,8 @@ const QuizSection: React.FC = () => {
   const { t } = useLanguage();
   
   const openTypeform = () => {
-    // Using the provided Typeform URL
-    window.open("https://form.typeform.com/to/dIDP5oRL", "_blank");
+    // Using the updated Typeform URL
+    window.open("https://form.typeform.com/to/jduH7cZ7#ref_id=xxxxx", "_blank");
   };
 
   return (

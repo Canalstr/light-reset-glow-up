@@ -27,16 +27,16 @@ const translations = {
     de: "Basierend auf Nobelpreis-gekrönter Chronobiologie"
   },
   "sleep.faster": {
-    en: "Sleep 30 Min Faster in 5 Days - Using Only 10 Minutes of Morning Sunlight",
-    de: "Schlafe 30 Min schneller ein in 5 Tagen - mit nur 10 Minuten Morgensonne"
+    en: "Sleep 30 Min Faster in 7 Days - Using Only 10 Minutes of Morning Sunlight",
+    de: "Schlafe 30 Min schneller ein in 7 Tagen - mit nur 10 Minuten Morgensonne"
   },
   "no.pills": {
     en: "No pills. No gadgets. Just a science-backed light habit you can start right now",
     de: "Keine Pillen. Keine Geräte. Nur eine wissenschaftlich fundierte Lichtgewohnheit, die du sofort beginnen kannst"
   },
   "take.quiz.45": {
-    en: "Take the 45-Second Sleep-Light Quiz",
-    de: "Mache den 45-Sekunden Schlaf-Licht-Quiz"
+    en: "Take the 45-Second Sleep Quiz",
+    de: "Starte das 45-Sekunden Schlaf-Quiz"
   },
   "lose.weight": {
     en: "Super-Charge Your Energy, Sleep & Focus in 5 Weeks",
@@ -76,11 +76,11 @@ const translations = {
   // Problem Solution Section
   "why.fail": {
     en: "Why Traditional Energy & Sleep Solutions Fail",
-    de: "Warum traditionelle Energie- und Schlaflösungen scheitern"
+    de: "Warum herkömmliche Schlaflösungen scheitern"
   },
   "modern.lighting": {
     en: "Modern lighting disrupts your natural circadian rhythm - but there's a solution",
-    de: "Moderne Beleuchtung stört deinen natürlichen zirkadianen Rhythmus - aber es gibt eine Lösung"
+    de: "Modernes Licht stört deinen natürlichen zirkadianen Rhythmus - aber es gibt eine Lösung"
   },
   "the.problem": {
     en: "The Problem",
@@ -241,8 +241,8 @@ const translations = {
     de: "Finde heraus, wie sehr sich deine Energie und Konzentration mit deinem individuellen Lichtprotokoll verbessern könnten"
   },
   "step1": {
-    en: "Take the 60-second quiz",
-    de: "Mache den 60-Sekunden-Quiz"
+    en: "Take the 45-second quiz",
+    de: "Mache den 45-Sekunden-Quiz"
   },
   "step2": {
     en: "Get your personalized light protocol",
@@ -285,32 +285,32 @@ const translations = {
   
   // Purchase Section
   "start.journey": {
-    en: "Start Your Light Reset Journey Today",
-    de: "Starte deine Light Reset-Reise heute"
+    en: "Start Your Light Sprint Journey Today",
+    de: "Starte deinen Light Sprint"
   },
   "invest.in": {
     en: "Invest in a biological transformation that works with your body, not against it",
-    de: "Investiere in eine biologische Transformation, die mit deinem Körper arbeitet, nicht gegen ihn"
+    de: "Gönn dir eine biologische Transformation, die mit deinem Körper arbeitet, nicht gegen ihn"
   },
   "complete.system": {
-    en: "The Complete Light Reset System",
-    de: "Das komplette Light Reset-System"
+    en: "The Complete Light Reset Sprint",
+    de: "Der komplette Light Reset Sprint"
   },
   "everything.you.need": {
     en: "Everything you need to reset your body clock using light biology",
     de: "Alles, was du brauchst, um deine innere Uhr mit Lichtbiologie zurückzusetzen"
   },
   "feature1": {
-    en: "Complete 5-Week Light Reset Protocol",
-    de: "Komplettes 5-Wochen-Light-Reset-Protokoll"
+    en: "Complete 7-Day Light Reset Sprint",
+    de: "Kompletter 7-Tage Licht-Sprint"
   },
   "special.launch": {
     en: "Special Launch Price",
     de: "Spezieller Einführungspreis"
   },
   "price": {
-    en: "99 EUR",
-    de: "99 EUR"
+    en: "15 €",
+    de: "15 €"
   },
   "one-time": {
     en: "one-time payment",
@@ -321,12 +321,12 @@ const translations = {
     de: "Regulärer Preis:"
   },
   "save.today": {
-    en: "Save 55 EUR Today",
-    de: "Spare heute 55 EUR"
+    en: "Save 14 € Today",
+    de: "Spare heute 14 €"
   },
   "start.your": {
-    en: "Start Your Light Reset Journey",
-    de: "Starte deine Light Reset-Reise"
+    en: "Start Your Light Sprint",
+    de: "Starte deinen Licht Sprint"
   },
   "secure.payment": {
     en: "Secure payment via credit card or Apple Pay",
@@ -363,7 +363,7 @@ const translations = {
 };
 
 const LanguageContext = createContext<LanguageContextType>({
-  language: "en",
+  language: "de", // Changed default to German
   setLanguage: () => {},
   translations,
   t: () => ""
@@ -371,9 +371,9 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Get the language from localStorage or default to English
+    // Get the language from localStorage or default to German
     const savedLanguage = localStorage.getItem("language");
-    return (savedLanguage as Language) || "en";
+    return (savedLanguage as Language) || "de";
   });
 
   useEffect(() => {

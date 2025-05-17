@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const { t } = useLanguage();
   
   const openTypeform = () => {
-    window.open("https://form.typeform.com/to/dIDP5oRL", "_blank");
+    window.open("https://form.typeform.com/to/jduH7cZ7#ref_id=xxxxx", "_blank");
   };
 
   return (
