@@ -19,9 +19,10 @@ const VSLSection: React.FC = () => {
     }
   };
 
-  // Extract video ID from the Google Drive link
+  // Fix: Update the video URL format for Google Drive
   const videoId = "1cInRJZA8SzrVl4Wj5XR6hstSRLr45SyN";
-  const videoUrl = `https://drive.google.com/uc?export=download&id=${videoId}`;
+  // Use the direct streaming URL format
+  const videoUrl = `https://drive.google.com/file/d/${videoId}/preview`;
 
   return (
     <section className="py-16 bg-white">
