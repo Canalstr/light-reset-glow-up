@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   const handleCancelSubscription = () => {
-    window.open("https://billing.stripe.com/p/login/test_3cIfZigpO6M7fekc9rdZ600", "_blank");
+    window.open("https://billing.stripe.com/p/login/3cIfZigpO6M7fekc9rdZ600", "_blank");
   };
   
   return (
@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap gap-4 justify-center">
+            <a href="https://lightreset.net" className="text-gray-600 hover:text-bright-orange transition-colors">Home</a>
             <Link to="/impressum" className="text-gray-600 hover:text-bright-orange transition-colors">Impressum</Link>
             <Link to="/agb" className="text-gray-600 hover:text-bright-orange transition-colors">AGB</Link>
             <Link to="/widerruf" className="text-gray-600 hover:text-bright-orange transition-colors">Widerruf</Link>

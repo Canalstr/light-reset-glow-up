@@ -12,7 +12,7 @@ const PurchaseSection: React.FC = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   
   const features = [
-    t("feature1"),
+    language === "de" ? "Kompletter 7-Tage Licht-Sprint" : t("feature1"),
     "Personalized Light Timing Recommendations",
     "Daily Implementation Guides",
     "Progress Tracking Templates",
@@ -23,8 +23,7 @@ const PurchaseSection: React.FC = () => {
 
   const handlePurchase = () => {
     if (acceptedTerms) {
-      // Using the provided Whop checkout link
-      window.open("https://whop.com/checkout/plan_GwZw1m66mgm6Q/", "_blank");
+      window.open("https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601", "_blank");
     } else {
       alert(language === "de" ? 
         "Bitte akzeptieren Sie die Bedingungen zum Widerrufsrecht." : 
@@ -47,7 +46,7 @@ const PurchaseSection: React.FC = () => {
             <CardContent className="p-0">
               <div className="flex flex-col md:flex-row">
                 <div className="w-full md:w-7/12 p-6 md:p-8">
-                  <h3 className="text-2xl font-bold mb-2">{language === "de" ? "Das komplette Light Reset System" : t("complete.system")}</h3>
+                  <h3 className="text-2xl font-bold mb-2">{language === "de" ? "Das komplette Licht Sprint System" : t("complete.system")}</h3>
                   <p className="text-gray-600 mb-6">
                     {language === "de" ? "Alles was du brauchst, um deine Energie und Schlafqualität zu verbessern" : t("everything.you.need")}
                   </p>
@@ -72,7 +71,7 @@ const PurchaseSection: React.FC = () => {
                 
                 <div className="w-full md:w-5/12 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white flex flex-col justify-center">
                   <div className="text-center">
-                    <p className="text-2xl mb-1">{t("special.launch")}</p>
+                    <p className="text-2xl mb-1">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
                     <div className="mb-2">
                       <span className="text-4xl font-bold">15 €</span>
                       <span className="text-sm"> {t("one.time")}</span>
