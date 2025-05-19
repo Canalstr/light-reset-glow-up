@@ -10,9 +10,38 @@ import { HelpCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
-  const faqs = [
+  const faqs = language === "de" ? [
+    {
+      question: "Wie funktioniert das Light Reset-Protokoll genau?",
+      answer: "Das Light Reset funktioniert, indem du dich zu bestimmten Zeiten des Tages strategisch bestimmten Lichtarten aussetzt. Dies setzt deinen zirkadianen Rhythmus zurück, der deine Energielevel, Stresshormone und den Schlaf-Wach-Zyklus kontrolliert. Indem du deine Lichtexposition mit den natürlichen Rhythmen deines Körpers abstimmst, kannst du Energie und mentale Klarheit ohne Medikamente oder Nahrungsergänzungsmittel steigern."
+    },
+    {
+      question: "Muss ich wirklich keine großen Änderungen an meinem Lebensstil vornehmen?",
+      answer: "Richtig! Das Light Reset-Protokoll funktioniert, indem es deine bestehende Routine durch Lichtexpositionsmuster optimiert. Während gesunde Gewohnheiten immer vorteilhaft sind, konzentriert sich dieses Protokoll speziell darauf, die Lichtbiologie zu nutzen, um deinen zirkadianen Rhythmus zurückzusetzen. Viele Benutzer stellen fest, dass sich ihre natürliche Energieregulierung verbessert, was gesündere Entscheidungen einfacher macht, ohne dass sie sich gezwungen fühlen."
+    },
+    {
+      question: "Wie viel Zeit muss ich jeden Tag investieren?",
+      answer: "Das Protokoll erfordert nur minimalen Zeitaufwand - nur etwa 15 Minuten konzentrierte Aufmerksamkeit täglich. Die meisten Techniken integrieren sich nahtlos in deine bestehende Routine, wie das Anpassen, wann du deine Vorhänge öffnest oder wann du bestimmte Lichter in deinem Zuhause verwendest."
+    },
+    {
+      question: "Ist dieser Ansatz für das deutsche Klima und den Lebensstil geeignet?",
+      answer: "Absolut! Das Light Reset-Protokoll wurde speziell für deutsche Frauen angepasst und berücksichtigt das einzigartige Klima, saisonale Lichtvariationen und den überwiegend drinnen verbrachten Lebensstil während der Wintermonate. Es funktioniert innerhalb deiner bestehenden täglichen Routine und bietet spezifische Anleitungen für den Umgang mit Lichtexposition trotz begrenztem natürlichen Licht in bestimmten Jahreszeiten."
+    },
+    {
+      question: "Wie schnell werde ich Ergebnisse sehen?",
+      answer: "Viele Frauen bemerken Veränderungen in ihrem Energieniveau und Schlafmuster innerhalb von 7-10 Tagen nach Beginn des Protokolls. Die signifikantesten Verbesserungen treten typischerweise zwischen Woche 3-5 auf, wenn sich die metabolischen Systeme deines Körpers vollständig zurücksetzen und an optimierte Lichtexpositionsmuster anpassen."
+    },
+    {
+      question: "Werde ich spezielle Ausrüstung kaufen müssen?",
+      answer: "Keine teure Ausrüstung ist erforderlich. Das Protokoll funktioniert mit einfachen Anpassungen an deine bestehende Umgebung. Wir empfehlen einige kostengünstige Artikel wie spezifische Glühbirnen für den Abendgebrauch, aber diese sind optional und es werden erschwingliche Alternativen vorgeschlagen."
+    },
+    {
+      question: "Was passiert nach Ende des 5-Wochen-Programms?",
+      answer: "Nach Abschluss des 5-Wochen-Resets wirst du zu einem einfachen Wartungsprotokoll übergehen, das nur wenige Minuten pro Tag in Anspruch nimmt. Du wirst über alles Wissen verfügen, das du brauchst, um deine Ergebnisse langfristig mit minimalem laufenden Aufwand aufrechtzuerhalten."
+    }
+  ] : [
     {
       question: t("faq1.q"),
       answer: t("faq1.a")
