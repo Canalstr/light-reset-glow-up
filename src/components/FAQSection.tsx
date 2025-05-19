@@ -38,8 +38,8 @@ const FAQSection: React.FC = () => {
       answer: "Keine teure Ausrüstung ist erforderlich. Das Protokoll funktioniert mit einfachen Anpassungen an deine bestehende Umgebung. Wir empfehlen einige kostengünstige Artikel wie spezifische Glühbirnen für den Abendgebrauch, aber diese sind optional und es werden erschwingliche Alternativen vorgeschlagen."
     },
     {
-      question: "Was passiert nach Ende des 5-Wochen-Programms?",
-      answer: "Nach Abschluss des 5-Wochen-Resets wirst du zu einem einfachen Wartungsprotokoll übergehen, das nur wenige Minuten pro Tag in Anspruch nimmt. Du wirst über alles Wissen verfügen, das du brauchst, um deine Ergebnisse langfristig mit minimalem laufenden Aufwand aufrechtzuerhalten."
+      question: "Was passiert nach Ende des 12-Wochen-Programms?",
+      answer: "Nach Abschluss des 12-Wochen-Resets wirst du zu einem einfachen Wartungsprotokoll übergehen, das nur wenige Minuten pro Tag in Anspruch nimmt. Du wirst über alles Wissen verfügen, das du brauchst, um deine Ergebnisse langfristig mit minimalem laufenden Aufwand aufrechtzuerhalten."
     }
   ] : [
     {

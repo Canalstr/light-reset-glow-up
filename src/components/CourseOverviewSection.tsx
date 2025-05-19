@@ -72,7 +72,7 @@ const CourseOverviewSection: React.FC = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-light-peach to-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">{language === "de" ? "Das Light Reset: 5-Wochen-Programm" : "The Light Reset: 5-Week Program"}</h2>
+        <h2 className="section-title">{language === "de" ? "Die ersten 5 Wochen im Light-Reset Protokoll" : "The Light Reset: 5-Week Program"}</h2>
         <p className="section-description">
           {language === "de" 
             ? "Ein einfacher, schrittweiser Ansatz, der mühelos in deinen Alltag passt" 

@@ -52,7 +52,7 @@ const BenefitsSection: React.FC = () => {
               className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-100"
             >
               <div className="flex items-center mb-4">
-                <div className="min-w-10 h-10 bg-light-orange rounded-full flex items-center justify-center mr-3">
+                <div className="flex-shrink-0 w-10 h-10 bg-light-orange rounded-full flex items-center justify-center mr-3">
                   <Check className="h-5 w-5 text-bright-orange" />
                 </div>
                 <h3 className="text-xl font-semibold">{benefit.title}</h3>

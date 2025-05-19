@@ -12,13 +12,13 @@ const PurchaseSection: React.FC = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   
   const features = [
-    language === "de" ? "Kompletter 7-Tage Licht-Sprint" : t("feature1"),
-    "Personalized Light Timing Recommendations",
-    "Daily Implementation Guides",
-    "Progress Tracking Templates",
-    "Troubleshooting Resources",
-    "Germany-Specific Light Recommendations",
-    "Lifetime Access to All Materials"
+    "Kompletter 7-Tage Licht-Sprint [7 Video Lektionen + PDF Workbook]",
+    "Community Chat",
+    "Persönliche Licht Timing Empfehlungen",
+    "Tägliche Umsetzungsguides",
+    "Progress Tracker Muster",
+    "Troubleshooting Resourcen",
+    "Deutschlandspezifische Lichtempfehlungen"
   ];
 
   const handlePurchase = () => {
@@ -63,7 +63,7 @@ const PurchaseSection: React.FC = () => {
                   <div className="bg-light-peach p-4 rounded-lg text-center mb-6">
                     <p className="text-sm">
                       <span className="font-semibold">{language === "de" ? "Unser Zufriedenheitsversprechen:" : "Our Satisfaction Promise:"}</span> {language === "de" 
-                      ? "Wenn Sie innerhalb von 7 Tagen keine signifikanten Verbesserungen Ihrer Energie und Konzentration bemerken, arbeiten wir mit Ihnen an der Anpassung Ihres Protokolls oder erstatten Ihnen den vollen Betrag zurück." 
+                      ? "Wenn Du innerhalb von 7 Tagen keine signifikanten Verbesserungen deiner Energie und Konzentration bemerkst, arbeiten wir mit dir an der Anpassung deines Protokolls oder erstatten dir den vollen Betrag zurück." 
                       : "If you don't notice significant improvements in your energy and focus levels within 7 days, we'll work with you to adjust your protocol or provide a full refund."}
                     </p>
                   </div>

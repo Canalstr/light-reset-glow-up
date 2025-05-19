@@ -1,12 +1,9 @@
 
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Star } from "lucide-react";
 
 const ThankYou: React.FC = () => {
-  const { t } = useLanguage();
-
   // Ensure TikTok pixel fires on component mount
   useEffect(() => {
     if (typeof window !== 'undefined' && (window as any).ttq) {
@@ -31,15 +28,12 @@ const ThankYou: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 text-center">
-            Payment Successful – Zahlung erfolgreich
+            Zahlung erfolgreich
           </h1>
           
           <div className="mb-8 text-xl text-gray-700 text-center">
             <p className="mb-2">
-              Thank you for joining <strong className="text-bright-orange">The Light Reset</strong>!
-            </p>
-            <p>
-              Vielen Dank für deine Anmeldung!
+              Vielen Dank für deine Anmeldung bei <strong className="text-bright-orange">The Light Reset</strong>!
             </p>
           </div>
           
@@ -48,16 +42,16 @@ const ThankYou: React.FC = () => {
               onClick={() => window.location.href = 'https://lightreset.net'}
               className="btn-primary text-lg py-6 px-10 animate-glow"
             >
-              Start Now | Jetzt starten
+              Jetzt starten
             </Button>
           </div>
           
           {/* Additional benefits reminder */}
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "5-Week Program", desc: "Comprehensive protocol tailored for your needs" },
-              { title: "Expert Support", desc: "Get guidance throughout your journey" },
-              { title: "Science-Backed", desc: "Based on modern light biology research" }
+              { title: "7-Tage Licht Sprint", desc: "Umfassendes Protokoll, zugeschnitten auf deine Bedürfnisse" },
+              { title: "Experten-Unterstützung", desc: "Erhalte Anleitung während deiner gesamten Reise" },
+              { title: "Wissenschaftlich fundiert", desc: "Basierend auf moderner Lichtbiologieforschung" }
             ].map((item, i) => (
               <div key={i} className="bg-light-yellow/30 p-5 rounded-lg text-center">
                 <h3 className="font-semibold mb-2 text-bright-orange">{item.title}</h3>
