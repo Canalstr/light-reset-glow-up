@@ -6,10 +6,12 @@ const Upgrade: React.FC = () => {
   useEffect(() => {
     // Script to replace placeholders
     const p = new URLSearchParams(location.search);
-    document.querySelectorAll('a[data-dynamic]').forEach(a => {
-      a.href = a.href
-        .replace('{{email}}', encodeURIComponent(p.get('email') || ''))
-        .replace('{{refID}}', encodeURIComponent(p.get('refID') || ''));
+    document.querySelectorAll('a[data-dynamic]').forEach((a) => {
+      if (a instanceof HTMLAnchorElement) {
+        a.href = a.href
+          .replace('{{email}}', encodeURIComponent(p.get('email') || ''))
+          .replace('{{refID}}', encodeURIComponent(p.get('refID') || ''));
+      }
     });
   }, []);
 
