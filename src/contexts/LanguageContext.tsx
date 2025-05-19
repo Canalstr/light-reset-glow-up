@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "en" | "de";
@@ -286,7 +285,7 @@ const translations = {
   // Purchase Section
   "start.journey": {
     en: "Start Your Light Sprint Journey Today",
-    de: "Starte deinen Light Sprint"
+    de: "Starte deinen Light Sprint heute"
   },
   "invest.in": {
     en: "Invest in a biological transformation that works with your body, not against it",
@@ -359,6 +358,20 @@ const translations = {
   "lang.toggle": {
     en: "English | Deutsch",
     de: "English | Deutsch"
+  },
+  
+  // New translated sections
+  "5-week.program": {
+    en: "The Light Reset: 5-Week Program",
+    de: "The Light Reset: 5-Wochen-Programm"
+  },
+  "whats.included": {
+    en: "What's Included",
+    de: "Was enthalten ist"
+  },
+  "faq.title": {
+    en: "FAQ",
+    de: "FAQ"
   }
 };
 

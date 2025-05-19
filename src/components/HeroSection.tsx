@@ -52,6 +52,11 @@ const HeroSection: React.FC = () => {
             <p className="text-lg md:text-xl mb-6 text-gray-700">
               {t("no.pills")}
             </p>
+            
+            {/* Legal disclaimer */}
+            <p className="text-sm text-gray-600 mb-4 italic">
+              Kein Heilversprechen; Bildungsangebot ab 18 Jahren
+            </p>
 
             {/* Updated CTA */}
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
