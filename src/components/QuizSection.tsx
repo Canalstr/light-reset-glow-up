@@ -7,9 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const QuizSection: React.FC = () => {
   const { t } = useLanguage();
   
-  const openTypeform = () => {
-    // Using the updated Typeform URL
-    window.open("https://form.typeform.com/to/jduH7cZ7#ref_id=xxxxx", "_blank");
+  const openQuiz = () => {
+    // Updated to use the new quiz URL
+    window.open("https://lightreset.net/quiz?refID=site", "_blank");
   };
 
   return (
@@ -57,7 +57,7 @@ const QuizSection: React.FC = () => {
                   </p>
                   
                   <Button 
-                    onClick={openTypeform} 
+                    onClick={openQuiz} 
                     className="btn-primary animate-glow text-lg py-6 px-6 md:px-10"
                   >
                     {t("take.quiz.45")}

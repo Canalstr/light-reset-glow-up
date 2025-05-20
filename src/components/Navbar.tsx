@@ -7,8 +7,8 @@ import LanguageToggle from "@/components/LanguageToggle";
 const Navbar: React.FC = () => {
   const { t } = useLanguage();
   
-  const openTypeform = () => {
-    window.open("https://form.typeform.com/to/jduH7cZ7#ref_id=xxxxx", "_blank");
+  const openQuiz = () => {
+    window.open("https://lightreset.net/quiz?refID=site", "_blank");
   };
 
   return (
@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-2">
           <LanguageToggle />
           <Button 
-            onClick={openTypeform}
+            onClick={openQuiz}
             className="bg-bright-orange hover:bg-orange-600" 
             size="sm"
           >

@@ -227,13 +227,13 @@
       <div class="question">Wann wachst du an Arbeitstagen normalerweise auf?</div>
       <div class="options">
         <div class="option" onclick="selectOption(this, 0)" data-value="0">05–06 Uhr</div>
-        <div class="option" onclick="selectOption(this, 1)" data-value="1">06–07 Uhr</div>
-        <div class="option" onclick="selectOption(this, 2)" data-value="2">07–08 Uhr</div>
-        <div class="option" onclick="selectOption(this, 3)" data-value="3">Nach 08 Uhr</div>
+        <div class="option" onclick="selectOption(this, 0)" data-value="1">06–07 Uhr</div>
+        <div class="option" onclick="selectOption(this, 0)" data-value="2">07–08 Uhr</div>
+        <div class="option" onclick="selectOption(this, 0)" data-value="3">Nach 08 Uhr</div>
       </div>
       <div class="btn-container">
         <div></div> <!-- Spacer for alignment -->
-        <button class="btn" onclick="nextQuestion(1, 2)" id="q1-next" disabled>Weiter</button>
+        <button class="btn" onclick="nextQuestion(1, 2)" id="q1-next">Weiter</button>
       </div>
     </div>
     
@@ -241,14 +241,14 @@
     <div class="card" id="q2">
       <div class="question">Wie lange brauchst du aktuell, um einzuschlafen?</div>
       <div class="options">
-        <div class="option" onclick="selectOption(this, 0)" data-value="0"><10 Min</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="0"><10 Min</div>
         <div class="option" onclick="selectOption(this, 1)" data-value="1">10–20 Min</div>
-        <div class="option" onclick="selectOption(this, 2)" data-value="2">20–40 Min</div>
-        <div class="option" onclick="selectOption(this, 3)" data-value="3">>40 Min</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="2">20–40 Min</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="3">>40 Min</div>
       </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(2, 1)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(2, 3)" id="q2-next" disabled>Weiter</button>
+        <button class="btn" onclick="nextQuestion(2, 3)" id="q2-next">Weiter</button>
       </div>
     </div>
     
@@ -256,14 +256,14 @@
     <div class="card" id="q3">
       <div class="question">Wie viele Kaffees / Colas / Energy-Drinks trinkst du täglich NACH 14 Uhr?</div>
       <div class="options">
-        <div class="option" onclick="selectOption(this, 0)" data-value="0">0</div>
-        <div class="option" onclick="selectOption(this, 1)" data-value="1">1</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="0">0</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="1">1</div>
         <div class="option" onclick="selectOption(this, 2)" data-value="2">2–3</div>
-        <div class="option" onclick="selectOption(this, 3)" data-value="3">>3</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="3">>3</div>
       </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(3, 2)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(3, 4)" id="q3-next" disabled>Weiter</button>
+        <button class="btn" onclick="nextQuestion(3, 4)" id="q3-next">Weiter</button>
       </div>
     </div>
     
@@ -294,7 +294,7 @@
       </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(4, 3)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(4, 5)" id="q4-next" disabled>Weiter</button>
+        <button class="btn" onclick="nextQuestion(4, 5)" id="q4-next">Weiter</button>
       </div>
     </div>
     
@@ -302,14 +302,14 @@
     <div class="card" id="q5">
       <div class="question">Bildschirmzeit NACH 21 Uhr?</div>
       <div class="options">
-        <div class="option" onclick="selectOption(this, 0)" data-value="0">Nie</div>
-        <div class="option" onclick="selectOption(this, 1)" data-value="1"><30 Min</div>
-        <div class="option" onclick="selectOption(this, 2)" data-value="2">30–60 Min</div>
-        <div class="option" onclick="selectOption(this, 3)" data-value="3">>60 Min</div>
+        <div class="option" onclick="selectOption(this, 4)" data-value="0">Nie</div>
+        <div class="option" onclick="selectOption(this, 4)" data-value="1"><30 Min</div>
+        <div class="option" onclick="selectOption(this, 4)" data-value="2">30–60 Min</div>
+        <div class="option" onclick="selectOption(this, 4)" data-value="3">>60 Min</div>
       </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(5, 4)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(5, 6)" id="q5-next" disabled>Weiter</button>
+        <button class="btn" onclick="nextQuestion(5, 6)" id="q5-next">Weiter</button>
       </div>
     </div>
     
@@ -391,8 +391,18 @@
       // Store value
       quizData.answers[questionIndex] = parseInt(element.getAttribute('data-value'));
       
-      // Enable next button
-      document.getElementById(`q${questionIndex + 1}-next`).disabled = false;
+      // Enable next button (ensure it's always clickable)
+      const nextButton = document.getElementById(`q${questionIndex + 1}-next`);
+      if (nextButton) {
+        nextButton.disabled = false;
+      }
+      
+      // Auto-progress to next question after brief delay
+      setTimeout(() => {
+        if (questionIndex < 5) { // Only auto-progress for questions 1-5
+          nextQuestion(questionIndex + 1, questionIndex + 2);
+        }
+      }, 500);
     }
     
     // Scale selection handler
@@ -408,8 +418,13 @@
       // Store value (6 - scale value for Q4)
       quizData.answers[3] = 6 - value;
       
-      // Enable next button
+      // Enable next button (always clickable)
       document.getElementById('q4-next').disabled = false;
+      
+      // Auto-progress to next question after brief delay
+      setTimeout(() => {
+        nextQuestion(4, 5);
+      }, 500);
     }
     
     // Email validation

@@ -9,8 +9,8 @@ const HeroSection: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const openTypeform = () =>
-    window.open("https://form.typeform.com/to/jduH7cZ7#ref_id=xxxxx", "_blank");
+  const openQuiz = () =>
+    window.open("https://lightreset.net/quiz?refID=site", "_blank");
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
 
             {/* Updated CTA */}
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
-              <Button onClick={openTypeform} className="btn-primary flex items-center gap-2 text-lg px-6 py-4">
+              <Button onClick={openQuiz} className="btn-primary flex items-center gap-2 text-lg px-6 py-4">
                 {t("take.quiz.45")}
                 <ArrowDown size={18} />
               </Button>
@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
                 {/* Quiz button below video */}
                 <div className="absolute bottom-16 left-0 right-0 flex justify-center">
                   <Button 
-                    onClick={openTypeform} 
+                    onClick={openQuiz} 
                     className="bg-bright-orange hover:bg-orange-600 text-white shadow-lg"
                   >
                     {t("take.quiz")}
