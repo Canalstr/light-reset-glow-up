@@ -8,7 +8,7 @@ const QuizSection: React.FC = () => {
   const { t } = useLanguage();
   
   const openQuiz = () => {
-    // Updated to use the new quiz URL
+    // Using the new quiz URL
     window.open("https://lightreset.net/quiz?refID=site", "_blank");
   };
 
@@ -60,7 +60,7 @@ const QuizSection: React.FC = () => {
                     onClick={openQuiz} 
                     className="btn-primary animate-glow text-lg py-6 px-6 md:px-10"
                   >
-                    {t("take.quiz.45")}
+                    {t("take.quiz.45").replace("den", "das")}
                   </Button>
                   
                   <p className="text-sm text-gray-500">

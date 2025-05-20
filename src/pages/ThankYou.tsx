@@ -1,6 +1,6 @@
 
 import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
 const ThankYou: React.FC = () => {
@@ -38,12 +38,25 @@ const ThankYou: React.FC = () => {
           </div>
           
           <div className="flex justify-center mb-12">
-            <Button 
-              onClick={() => window.location.href = 'https://lightreset.net'}
-              className="btn-primary text-lg py-6 px-10 animate-glow"
-            >
-              Jetzt starten
-            </Button>
+            {/* Replace button with download link */}
+            <a id="download-btn" href="#" className="btn-primary text-lg py-6 px-10 animate-glow inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90" download>
+              Download your personalised workbook
+            </a>
+            
+            <script dangerouslySetInnerHTML={{
+              __html: `
+                (function () {
+                  const sid = new URLSearchParams(location.search).get('session_id');
+                  const btn = document.getElementById('download-btn');
+                  if (sid) {
+                    btn.href =
+                      '/.netlify/functions/download?session_id=' + encodeURIComponent(sid);
+                  } else {
+                    btn.style.display = 'none';   // hides button if page opened without payment
+                  }
+                })();
+              `
+            }} />
           </div>
           
           {/* Additional benefits reminder */}

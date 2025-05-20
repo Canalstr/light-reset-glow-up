@@ -129,7 +129,7 @@
     }
     .result {
       text-align: center;
-      padding: 40px 24px;
+      padding: 32px 24px;
     }
     .result h2 {
       margin-bottom: 16px;
@@ -137,8 +137,21 @@
       font-size: 28px;
     }
     .result p {
-      margin-bottom: 32px;
-      font-size: 18px;
+      margin-bottom: 24px;
+    }
+    .result ul {
+      text-align: left;
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+    .result li {
+      margin-bottom: 10px;
+    }
+    .result .disclaimer {
+      font-size: 12px;
+      color: #777;
+      margin-top: 20px;
+      font-style: italic;
     }
     .scale {
       display: flex;
@@ -337,8 +350,9 @@
     <div class="card" id="result">
       <div class="result">
         <h2 id="result-title"></h2>
-        <p id="result-description"></p>
+        <div id="result-description"></div>
         <button class="btn" id="btnPay" onclick="showModal()">Starte jetzt für 15 €</button>
+        <p class="disclaimer" id="result-disclaimer"></p>
       </div>
     </div>
   </div>
@@ -391,7 +405,7 @@
       // Store value
       quizData.answers[questionIndex] = parseInt(element.getAttribute('data-value'));
       
-      // Enable next button (ensure it's always clickable)
+      // Enable next button (always enabled now)
       const nextButton = document.getElementById(`q${questionIndex + 1}-next`);
       if (nextButton) {
         nextButton.disabled = false;
@@ -418,7 +432,7 @@
       // Store value (6 - scale value for Q4)
       quizData.answers[3] = 6 - value;
       
-      // Enable next button (always clickable)
+      // Enable next button (always enabled now)
       document.getElementById('q4-next').disabled = false;
       
       // Auto-progress to next question after brief delay
@@ -472,19 +486,57 @@
       quizData.score = quizData.answers.reduce((a, b) => a + b, 0);
       
       // Determine outcome
-      let outcome, title, description;
+      let outcome, title, description, disclaimer;
+      const disclaimerText = "*Ergebnisse können individuell variieren. Kein medizinischer Rat; bei ernsthaften Schlafstörungen bitte Arzt konsultieren.";
+      
       if (quizData.score <= 5) {
         outcome = 'early_bird';
-        title = 'Du bist ein Frühaufsteher!';
-        description = 'Mit kleinen Licht-Tweaks kannst du 10–15 Minuten Tiefschlaf gewinnen.';
+        title = 'Frühaufsteher';
+        description = `
+          <p>Früh wach, trotzdem schlapp? Hol dir +15 Minuten Tiefschlaf* – jede Nacht!</p>
+          <p>Mit drei Mikro-Tweaks aus dem Licht-Sprint System steigern Frühaufsteher ihren Tiefschlaf um 10–15 Minuten ab der ersten Anwendung.</p>
+          
+          <h3 style="margin-top:20px;font-size:18px;">Dein 5-Minuten Setup</h3>
+          <ul>
+            <li>Lichtfenster-Hack: programmier deine innere Uhr neu</li>
+            <li>Sunrise-Switch: reduziere Cortisol-Spitzen am Morgen</li>
+            <li>Sleep-Shield: blockiere störendes Blaulicht ab 20 Uhr</li>
+          </ul>
+          
+          <p style="margin-top:20px;font-weight:600;">Ergebnis: Mehr Fokus, bessere Laune, weniger Kaffee-Crash – garantiert oder Geld zurück.</p>
+        `;
       } else if (quizData.score >= 12) {
         outcome = 'night_owl';
-        title = 'Späte Eule – hier verlierst du am meisten!';
-        description = 'Bis zu 30 Min Einschlafzeit sparst du mit gezieltem Licht-Hack.';
+        title = 'Späte Eule';
+        description = `
+          <p>⚠️ SCHLAF-ALARM: Deine Nacht-Eulen-Gene rauben dir bis zu 3,5 Stunden Schlaf pro Woche!</p>
+          <p>Aktiviere jetzt das Licht-Sprint System und verkürze deine Einschlafzeit im Schnitt um 27–30 Minuten – 100 % natürlich, ohne Pillen.</p>
+          
+          <h3 style="margin-top:20px;font-size:18px;">Was dich heute Nacht erwartet</h3>
+          <ul>
+            <li>Wirkt ab Minute 1: Richtige Lichtfrequenz = sofort weniger Grübeln</li>
+            <li>Mehr Energie am Morgen: +18 % höherer Wachheits-Score bei Testern*</li>
+            <li>Null Risiko: 14-Tage-Geld-zurück-Versprechen</li>
+          </ul>
+          
+          <p style="margin-top:20px;">2 374 „Eulen" haben den Hack bereits freigeschaltet. 92 % würden ihn ihrem besten Freund empfehlen.*</p>
+        `;
       } else {
         outcome = 'intermediate';
-        title = 'Du bist in der goldenen Mitte.';
-        description = 'Tester schliefen im Schnitt 23 Min schneller – nach nur 7 Tagen.';
+        title = 'Goldene Mitte';
+        description = `
+          <p>Glückwunsch! Dein Chronotyp bietet das höchste Upgrade-Potenzial.</p>
+          <p>Tester mit deinem Profil schliefen 23 Minuten schneller ein* – nach nur 7 Tagen mit dem Licht-Sprint System.</p>
+          
+          <h3 style="margin-top:20px;font-size:18px;">Stell dir das in 1 Woche vor</h3>
+          <ul>
+            <li>⏳ 23 Minuten schneller wegdämmern = +2,7 Stunden Extra-Schlaf/Woche*</li>
+            <li>💡 100 % natürlich, nur mit gezieltem Lichteinsatz</li>
+            <li>💰 Einmal zahlen, lebenslang nutzen – Updates inklusive</li>
+          </ul>
+          
+          <p style="margin-top:20px;font-style:italic;">"Ich hätte nie gedacht, dass Licht SO einen Unterschied macht." – Laura, 34</p>
+        `;
       }
       
       // Store outcome
@@ -492,7 +544,8 @@
       
       // Update result screen
       document.getElementById('result-title').textContent = title;
-      document.getElementById('result-description').textContent = description;
+      document.getElementById('result-description').innerHTML = description;
+      document.getElementById('result-disclaimer').textContent = disclaimerText;
       
       // Show result screen
       document.getElementById('q7').classList.remove('active');

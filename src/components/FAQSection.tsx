@@ -15,7 +15,7 @@ const FAQSection: React.FC = () => {
   const faqs = language === "de" ? [
     {
       question: "Wie funktioniert das Light Reset-Protokoll genau?",
-      answer: "Das Light Reset funktioniert, indem du dich zu bestimmten Zeiten des Tages strategisch bestimmten Lichtarten aussetzt. Dies setzt deinen zirkadianen Rhythmus zurück, der deine Energielevel, Stresshormone und den Schlaf-Wach-Zyklus kontrolliert. Indem du deine Lichtexposition mit den natürlichen Rhythmen deines Körpers abstimmst, kannst du Energie und mentale Klarheit ohne Medikamente oder Nahrungsergänzungsmittel steigern."
+      answer: "The Light Reset funktioniert, indem du dich zu bestimmten Zeiten des Tages strategisch bestimmten Lichtarten aussetzt. Dies setzt deinen zirkadianen Rhythmus zurück, der deine Energielevel, Stresshormone und den Schlaf-Wach-Zyklus kontrolliert. Indem du deine Lichtexposition mit den natürlichen Rhythmen deines Körpers abstimmst, kannst du Energie und mentale Klarheit ohne Medikamente oder Nahrungsergänzungsmittel steigern."
     },
     {
       question: "Muss ich wirklich keine großen Änderungen an meinem Lebensstil vornehmen?",
@@ -34,7 +34,7 @@ const FAQSection: React.FC = () => {
       answer: "Viele Frauen bemerken Veränderungen in ihrem Energieniveau und Schlafmuster innerhalb von 7-10 Tagen nach Beginn des Protokolls. Die signifikantesten Verbesserungen treten typischerweise zwischen Woche 3-5 auf, wenn sich die metabolischen Systeme deines Körpers vollständig zurücksetzen und an optimierte Lichtexpositionsmuster anpassen."
     },
     {
-      question: "Werde ich spezielle Ausrüstung kaufen müssen?",
+      question: "Muss ich zusätzliches Gear kaufen?",
       answer: "Keine teure Ausrüstung ist erforderlich. Das Protokoll funktioniert mit einfachen Anpassungen an deine bestehende Umgebung. Wir empfehlen einige kostengünstige Artikel wie spezifische Glühbirnen für den Abendgebrauch, aber diese sind optional und es werden erschwingliche Alternativen vorgeschlagen."
     },
     {

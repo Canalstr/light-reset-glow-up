@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             onClick={handleCancelSubscription}
             className="text-gray-600 hover:text-bright-orange p-0 h-auto"
           >
-            Vertrag hier kündigen <ExternalLink className="h-3 w-3 ml-1" />
+            hier kündigen <ExternalLink className="h-3 w-3 ml-1" />
           </Button>
         </div>
         
