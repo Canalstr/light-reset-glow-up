@@ -1,0 +1,9 @@
+{
+  "name": "lightreset-site",
+  "version": "1.0.0",
+  "dependencies": {
+    "stripe": "^12.8.0",
+    "pdf-lib": "^1.17.1",
+    "node-fetch": "^2.6.7"
+  }
+}
