@@ -35,6 +35,7 @@ const App = () => (
             <Route path="/widerruf" element={<Widerruf />} />
             <Route path="/upgrade" element={<Upgrade />} />
             <Route path="/elite-kit" element={<EliteKit />} />
+            <Route path="/quiz" element={<div />} /> {/* This route will serve the static HTML file */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

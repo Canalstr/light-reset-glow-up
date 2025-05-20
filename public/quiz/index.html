@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schlaf-Quiz | The Light Reset</title>
+  <style>
+    :root {
+      --primary: #FF8A3D;
+      --secondary: #F8F1E9;
+      --dark: #333;
+      --light: #fff;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      background-color: #f5f5f7;
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--light);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-container {
+      height: 8px;
+      background: #eee;
+      width: 100%;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--primary);
+      width: 0;
+      transition: width 0.3s ease;
+    }
+    .card {
+      padding: 32px 24px;
+      display: none;
+    }
+    .card.active {
+      display: block;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .question {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .option {
+      background: var(--secondary);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius);
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .option:hover {
+      background: #f0e6db;
+    }
+    .option.selected {
+      border-color: var(--primary);
+      background: rgba(255, 138, 61, 0.1);
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+    .btn {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 12px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn:hover {
+      background: #e67a2d;
+    }
+    .btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .btn-back {
+      background: transparent;
+      color: var(--dark);
+    }
+    input[type="email"], input[type="tel"] {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    input[type="email"]:focus, input[type="tel"]:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    .result {
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .result h2 {
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 28px;
+    }
+    .result p {
+      margin-bottom: 32px;
+      font-size: 18px;
+    }
+    .scale {
+      display: flex;
+      justify-content: space-between;
+      margin: 24px 0;
+    }
+    .scale-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20%;
+      cursor: pointer;
+    }
+    .scale-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+    .scale-option.selected .scale-dot {
+      border-color: var(--primary);
+      background: var(--primary);
+    }
+    .scale-label {
+      font-size: 12px;
+      text-align: center;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .modal-content {
+      background: var(--light);
+      border-radius: var(--border-radius);
+      max-width: 500px;
+      width: 100%;
+      padding: 24px;
+      position: relative;
+    }
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .checkbox-container input {
+      margin-top: 4px;
+    }
+    .fine-print {
+      font-size: 12px;
+      color: #666;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="hidden" id="refID" name="refID" value="">
+  
+  <div class="container" id="quiz-container">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+    
+    <!-- Question 1 -->
+    <div class="card active" id="q1">
+      <div class="question">Wann wachst du an Arbeitstagen normalerweise auf?</div>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 0)" data-value="0">05–06 Uhr</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="1">06–07 Uhr</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="2">07–08 Uhr</div>
+        <div class="option" onclick="selectOption(this, 3)" data-value="3">Nach 08 Uhr</div>
+      </div>
+      <div class="btn-container">
+        <div></div> <!-- Spacer for alignment -->
+        <button class="btn" onclick="nextQuestion(1, 2)" id="q1-next" disabled>Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 2 -->
+    <div class="card" id="q2">
+      <div class="question">Wie lange brauchst du aktuell, um einzuschlafen?</div>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 0)" data-value="0"><10 Min</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="1">10–20 Min</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="2">20–40 Min</div>
+        <div class="option" onclick="selectOption(this, 3)" data-value="3">>40 Min</div>
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(2, 1)">Zurück</button>
+        <button class="btn" onclick="nextQuestion(2, 3)" id="q2-next" disabled>Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 3 -->
+    <div class="card" id="q3">
+      <div class="question">Wie viele Kaffees / Colas / Energy-Drinks trinkst du täglich NACH 14 Uhr?</div>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 0)" data-value="0">0</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="1">1</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="2">2–3</div>
+        <div class="option" onclick="selectOption(this, 3)" data-value="3">>3</div>
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(3, 2)">Zurück</button>
+        <button class="btn" onclick="nextQuestion(3, 4)" id="q3-next" disabled>Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 4 -->
+    <div class="card" id="q4">
+      <div class="question">Wie oft siehst du morgens echte Sonne BEVOR du Indoor-Licht siehst?</div>
+      <div class="scale">
+        <div class="scale-option" onclick="selectScale(this, 1)" data-value="1">
+          <div class="scale-dot"></div>
+          <div class="scale-label">1<br>Nie</div>
+        </div>
+        <div class="scale-option" onclick="selectScale(this, 2)" data-value="2">
+          <div class="scale-dot"></div>
+          <div class="scale-label">2</div>
+        </div>
+        <div class="scale-option" onclick="selectScale(this, 3)" data-value="3">
+          <div class="scale-dot"></div>
+          <div class="scale-label">3</div>
+        </div>
+        <div class="scale-option" onclick="selectScale(this, 4)" data-value="4">
+          <div class="scale-dot"></div>
+          <div class="scale-label">4</div>
+        </div>
+        <div class="scale-option" onclick="selectScale(this, 5)" data-value="5">
+          <div class="scale-dot"></div>
+          <div class="scale-label">5<br>Jeden Tag</div>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(4, 3)">Zurück</button>
+        <button class="btn" onclick="nextQuestion(4, 5)" id="q4-next" disabled>Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 5 -->
+    <div class="card" id="q5">
+      <div class="question">Bildschirmzeit NACH 21 Uhr?</div>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 0)" data-value="0">Nie</div>
+        <div class="option" onclick="selectOption(this, 1)" data-value="1"><30 Min</div>
+        <div class="option" onclick="selectOption(this, 2)" data-value="2">30–60 Min</div>
+        <div class="option" onclick="selectOption(this, 3)" data-value="3">>60 Min</div>
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(5, 4)">Zurück</button>
+        <button class="btn" onclick="nextQuestion(5, 6)" id="q5-next" disabled>Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 6 (Email) -->
+    <div class="card" id="q6">
+      <div class="question">Wohin dürfen wir deinen Schlaf-Report schicken?</div>
+      <input type="email" id="email" placeholder="deine@email.de" required>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(6, 5)">Zurück</button>
+        <button class="btn" onclick="validateEmail()" id="q6-next">Weiter</button>
+      </div>
+    </div>
+    
+    <!-- Question 7 (Phone) -->
+    <div class="card" id="q7">
+      <div class="question">Optional: Handy-Nr. für SMS-Reminder?</div>
+      <input type="tel" id="phone" placeholder="+49 123 4567890">
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="prevQuestion(7, 6)">Zurück</button>
+        <button class="btn" onclick="completeQuiz()">Ergebnisse anzeigen</button>
+      </div>
+    </div>
+    
+    <!-- Results -->
+    <div class="card" id="result">
+      <div class="result">
+        <h2 id="result-title"></h2>
+        <p id="result-description"></p>
+        <button class="btn" id="btnPay" onclick="showModal()">Starte jetzt für 15 €</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Payment Modal -->
+  <div class="modal" id="payment-modal">
+    <div class="modal-content">
+      <div class="modal-title">Bestätigung</div>
+      <div class="checkbox-container">
+        <input type="checkbox" id="waive-rights" onchange="toggleButton()">
+        <label for="waive-rights">Ich verlange die sofortige Bereitstellung der digitalen Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs. 5 BGB).</label>
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-back" onclick="closeModal()">Abbrechen</button>
+        <button class="btn" id="btnGo" disabled onclick="proceedToPayment()">Weiter zur Zahlung</button>
+      </div>
+      <p class="fine-print">€15 heute • automatische Verlängerung €199/Quartal ab Tag 7 • jederzeit kündbar</p>
+    </div>
+  </div>
+
+  <script>
+    // Get refID from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const refID = urlParams.get('refID') || '';
+    document.getElementById('refID').value = refID;
+    
+    // Quiz data storage
+    const quizData = {
+      answers: [null, null, null, null, null],
+      email: '',
+      phone: '',
+      outcome: '',
+      score: 0,
+      refID: refID
+    };
+    
+    // Current question tracking
+    let currentQuestion = 1;
+    
+    // Option selection handler
+    function selectOption(element, questionIndex) {
+      // Remove selected class from all siblings
+      const parent = element.parentElement;
+      const options = parent.querySelectorAll('.option');
+      options.forEach(opt => opt.classList.remove('selected'));
+      
+      // Add selected class to clicked option
+      element.classList.add('selected');
+      
+      // Store value
+      quizData.answers[questionIndex] = parseInt(element.getAttribute('data-value'));
+      
+      // Enable next button
+      document.getElementById(`q${questionIndex + 1}-next`).disabled = false;
+    }
+    
+    // Scale selection handler
+    function selectScale(element, value) {
+      // Remove selected class from all siblings
+      const parent = element.parentElement;
+      const options = parent.querySelectorAll('.scale-option');
+      options.forEach(opt => opt.classList.remove('selected'));
+      
+      // Add selected class to clicked option
+      element.classList.add('selected');
+      
+      // Store value (6 - scale value for Q4)
+      quizData.answers[3] = 6 - value;
+      
+      // Enable next button
+      document.getElementById('q4-next').disabled = false;
+    }
+    
+    // Email validation
+    function validateEmail() {
+      const email = document.getElementById('email').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(email)) {
+        alert('Bitte gib eine gültige E-Mail-Adresse ein.');
+        return;
+      }
+      
+      quizData.email = email;
+      nextQuestion(6, 7);
+    }
+    
+    // Navigation functions
+    function nextQuestion(current, next) {
+      document.getElementById(`q${current}`).classList.remove('active');
+      document.getElementById(`q${next}`).classList.add('active');
+      currentQuestion = next;
+      updateProgressBar();
+    }
+    
+    function prevQuestion(current, prev) {
+      document.getElementById(`q${current}`).classList.remove('active');
+      document.getElementById(`q${prev}`).classList.add('active');
+      currentQuestion = prev;
+      updateProgressBar();
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+      const totalQuestions = 7;
+      const progressPercent = ((currentQuestion - 1) / totalQuestions) * 100;
+      document.getElementById('progress').style.width = `${progressPercent}%`;
+    }
+    
+    // Complete quiz and show results
+    function completeQuiz() {
+      // Get phone number if provided
+      quizData.phone = document.getElementById('phone').value.trim();
+      
+      // Calculate score
+      quizData.score = quizData.answers.reduce((a, b) => a + b, 0);
+      
+      // Determine outcome
+      let outcome, title, description;
+      if (quizData.score <= 5) {
+        outcome = 'early_bird';
+        title = 'Du bist ein Frühaufsteher!';
+        description = 'Mit kleinen Licht-Tweaks kannst du 10–15 Minuten Tiefschlaf gewinnen.';
+      } else if (quizData.score >= 12) {
+        outcome = 'night_owl';
+        title = 'Späte Eule – hier verlierst du am meisten!';
+        description = 'Bis zu 30 Min Einschlafzeit sparst du mit gezieltem Licht-Hack.';
+      } else {
+        outcome = 'intermediate';
+        title = 'Du bist in der goldenen Mitte.';
+        description = 'Tester schliefen im Schnitt 23 Min schneller – nach nur 7 Tagen.';
+      }
+      
+      // Store outcome
+      quizData.outcome = outcome;
+      
+      // Update result screen
+      document.getElementById('result-title').textContent = title;
+      document.getElementById('result-description').textContent = description;
+      
+      // Show result screen
+      document.getElementById('q7').classList.remove('active');
+      document.getElementById('result').classList.add('active');
+      
+      // Update progress to 100%
+      document.getElementById('progress').style.width = '100%';
+    }
+    
+    // Modal functions
+    function showModal() {
+      document.getElementById('payment-modal').style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('payment-modal').style.display = 'none';
+    }
+    
+    function toggleButton() {
+      document.getElementById('btnGo').disabled = !document.getElementById('waive-rights').checked;
+    }
+    
+    // Handle payment
+    function proceedToPayment() {
+      // Send data to Google script
+      fetch('https://script.google.com/macros/s/AKfycbwcC9MwWaDkfDMQ82Y1kg6MuG-GJyHP7nWCKbXD99uZuEWiUUIPT34HyV7NDBuY81As/exec', {
+        method: 'POST',
+        body: JSON.stringify(quizData)
+      })
+      .catch(error => console.error('Error sending data:', error));
+      
+      // Redirect to Stripe
+      const stripeUrl = `https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601?prefilled_email=${encodeURIComponent(quizData.email)}&client_reference_id=${encodeURIComponent(quizData.refID)}`;
+      window.location.href = stripeUrl;
+    }
+    
+    // Initialize progress bar
+    updateProgressBar();
+  </script>
+</body>
+</html>
