@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
             {/* Updated CTA */}
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
               <Button onClick={openQuiz} className="btn-primary flex items-center gap-2 text-lg px-6 py-4">
-                {t("take.quiz.45")}
+                {t("take.quiz.45").replace("den", "das")}
                 <ArrowDown size={18} />
               </Button>
             </div>

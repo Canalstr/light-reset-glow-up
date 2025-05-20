@@ -33,12 +33,13 @@ const Upgrade: React.FC = () => {
           ✅ Ja, Upgrade sichern
         </a>
         
-        <Link 
-          to="/thanks"
+        <a 
+          href="https://lightreset.net/thanks?email={{email}}&refID={{refID}}&session_id={{session_id}}"
+          data-dynamic
           className="text-gray-500 hover:text-gray-700 inline-block mb-10"
         >
           Nein danke - Ich bleibe beim Basis-Abo
-        </Link>
+        </a>
         
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="flex justify-center space-x-4 text-sm text-gray-500">

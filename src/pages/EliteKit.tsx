@@ -48,12 +48,13 @@ const EliteKit: React.FC = () => {
             🚚 Ja, Kit hinzufügen
           </a>
           
-          <Link 
-            to="/thanks"
+          <a 
+            href="https://lightreset.net/thanks?email={{email}}&refID={{refID}}&session_id={{session_id}}"
+            data-dynamic
             className="text-gray-500 hover:text-gray-700 inline-block mb-10"
           >
             Vielleicht später – weiter zum Mitgliederbereich
-          </Link>
+          </a>
         </div>
         
         <div className="mt-8 pt-6 border-t border-gray-200">
