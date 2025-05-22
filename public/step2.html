@@ -1,0 +1,15 @@
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Step 2</title></head>
+<body style="text-align:center;margin-top:60px;font-family:sans-serif">
+  <h2>Schritt 2 von 2<br>7-Tage-Coaching kostenlos aktivieren …</h2>
+
+  <script>
+    /* simply forwards to the encoded Whop link */
+    const u   = new URL(location.href);
+    const url = decodeURIComponent(u.searchParams.get('url'));
+    location.replace(url);
+  </script>
+</body>
+</html>
