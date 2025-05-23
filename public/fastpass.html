@@ -11,13 +11,21 @@
   <li>Du zahlst nur <b>€199</b></li>
   <li>Bonus: Mealplan PRO (€79 Wert) + Founder &lt;100 Badge (€97 Wert)</li>
 </ul>
-<button class="btn bg-bright-orange hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-lg block mb-4 transition-colors" onclick="location.href='https://whop.com/checkout/plan_RFCVBrxvd193E/'">
+
+<div style="margin: 20px 0;">
+  <label style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 16px;">
+    <input type="checkbox" id="terms-checkbox" style="margin-top: 4px;">
+    <span style="font-size: 12px;">
+      Ich verlange sofortige Ausführung der digitalen Inhalte und verzichte auf mein Widerrufs­recht (§ 356 Abs 5 BGB).
+    </span>
+  </label>
+</div>
+
+<button id="purchase-button" class="btn bg-bright-orange hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-lg block mb-4 transition-colors opacity-50 cursor-not-allowed" disabled>
   JA, Fast-Pass für €199 holen →
 </button>
-<p style="font-size:12px;margin-top:15px;">
-☑ Ich verlange sofortige Ausführung der digitalen Inhalte und verzichte auf mein Widerrufs­recht (§ 356 Abs 5 BGB).
-</p>
-<p style="margin-top:20px;"><a href="/upgrade" class="text-bright-orange hover:underline">Zurück zur Orientierung</a></p>
+
+<p style="margin-top:20px;"><a href="/" class="text-bright-orange hover:underline">Zurück</a></p>
 </div>
 </div>
 
@@ -32,5 +40,25 @@
       }
     }
   }
+  
+  // Add functionality for the checkbox and button
+  const checkbox = document.getElementById('terms-checkbox');
+  const button = document.getElementById('purchase-button');
+  
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      button.disabled = false;
+      button.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+      button.disabled = true;
+      button.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+  });
+  
+  button.addEventListener('click', function() {
+    if (!button.disabled) {
+      window.location.href = 'https://whop.com/checkout/plan_RFCVBrxvd193E/';
+    }
+  });
 </script>
 </body></html>

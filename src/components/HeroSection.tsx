@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Volume2, VolumeX } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -48,7 +49,9 @@ const HeroSection: React.FC = () => {
               {t("sleep.faster")}
             </h1>
 
-            <p style={{fontSize:"20px"}}>Bezwing deinen Morgen-Zombie in 7 Tagen –<br />oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁</p>
+            <p style={{fontSize:"20px"}}>
+              Bezwing deinen Morgen-Zombie in 7 Tagen <Link to="/garantie.html" className="hover:underline">– oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁</Link>
+            </p>
 
             <ul id="benefits" style={{margin: "18px 0 24px 0", fontWeight: 600, lineHeight: 1.4}}>
               <li>–60 % Coffee-Cravings in 48 h</li>

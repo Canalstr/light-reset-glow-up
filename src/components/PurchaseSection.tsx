@@ -51,14 +51,32 @@ const PurchaseSection: React.FC = () => {
                     {language === "de" ? "Alles was du brauchst, um deine Energie und Schlafqualität zu verbessern" : t("everything.you.need")}
                   </p>
                   
-                  <table style={{width:"100%", maxWidth:"480px", borderCollapse:"collapse", fontSize:"15px", margin:"16px 0"}}>
-                    <tr><th colSpan={3} style={{textAlign:"left", paddingBottom:"8px"}}>Dein heutiges Paket für €27:</th></tr>
-                    <tr><td>„Sprint-Prep" Checkliste PDF</td><td><i>sofort</i></td><td style={{textAlign:"right"}}><b>€19</b></td></tr>
-                    <tr><td>Completion-Call Garantie</td><td><i>sofort</i></td><td style={{textAlign:"right"}}><b>€297</b></td></tr>
-                    <tr style={{background:"#ffe"}}><td><b>WERT HEUTE (Systemzugang & Orientierung)</b></td><td></td><td style={{textAlign:"right"}}><b>€459</b></td></tr>
+                  <table className="w-full max-w-md border-collapse mb-6">
+                    <thead>
+                      <tr>
+                        <th colSpan={3} className="text-left pb-2">Dein heutiges Paket für €27:</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="py-1">„Sprint-Prep" Checkliste PDF</td>
+                        <td className="py-1 px-2"><i>sofort</i></td>
+                        <td className="py-1 text-right"><b>€19</b></td>
+                      </tr>
+                      <tr>
+                        <td className="py-1">Completion-Call Garantie</td>
+                        <td className="py-1 px-2"><i>sofort</i></td>
+                        <td className="py-1 text-right"><b>€297</b></td>
+                      </tr>
+                      <tr className="bg-yellow-50">
+                        <td className="py-1 font-bold">WERT HEUTE (Systemzugang & Orientierung)</td>
+                        <td></td>
+                        <td className="py-1 text-right font-bold">€459</td>
+                      </tr>
+                    </tbody>
                   </table>
                   
-                  <h2>DEIN PREIS JETZT <i>€27</i> (-94 %)</h2>
+                  <h2 className="text-xl md:text-2xl font-bold mb-6">DEIN PREIS JETZT <i>€27</i> (-94 %)</h2>
                   
                   <div className="space-y-3 mb-8">
                     {features.map((feature, index) => (

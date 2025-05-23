@@ -16,7 +16,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div id="priceTimer" style={{fontWeight:700, margin:"18px 0"}}>
+      <div id="priceTimer" style={{fontWeight:700, margin:"18px 0", textAlign: "center"}}>
         Preis steigt in <span id="ttl">03:54:12</span>
       </div>
       <HeroSection />
