@@ -184,50 +184,6 @@
       font-size: 12px;
       text-align: center;
     }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: var(--light);
-      border-radius: var(--border-radius);
-      max-width: 500px;
-      width: 100%;
-      padding: 24px;
-      position: relative;
-    }
-    .modal-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .checkbox-container {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 20px 0;
-    }
-    .checkbox-container input {
-      margin-top: 4px;
-    }
-    .fine-print {
-      font-size: 12px;
-      color: #666;
-      margin-top: 12px;
-      text-align: center;
-    }
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -283,53 +239,7 @@
       </div>
     </div>
     
-    <!-- Question 4 (hidden) -->
-    <div class="card" id="q4" style="display:none!important;">
-      <div class="question">Wie oft siehst du morgens echte Sonne BEVOR du Indoor-Licht siehst?</div>
-      <div class="scale">
-        <div class="scale-option" onclick="selectScale(this, 1)" data-value="1">
-          <div class="scale-dot"></div>
-          <div class="scale-label">1<br>Nie</div>
-        </div>
-        <div class="scale-option" onclick="selectScale(this, 2)" data-value="2">
-          <div class="scale-dot"></div>
-          <div class="scale-label">2</div>
-        </div>
-        <div class="scale-option" onclick="selectScale(this, 3)" data-value="3">
-          <div class="scale-dot"></div>
-          <div class="scale-label">3</div>
-        </div>
-        <div class="scale-option" onclick="selectScale(this, 4)" data-value="4">
-          <div class="scale-dot"></div>
-          <div class="scale-label">4</div>
-        </div>
-        <div class="scale-option" onclick="selectScale(this, 5)" data-value="5">
-          <div class="scale-dot"></div>
-          <div class="scale-label">5<br>Jeden Tag</div>
-        </div>
-      </div>
-      <div class="btn-container">
-        <button class="btn btn-back" onclick="prevQuestion(4, 3)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(4, 5)" id="q4-next" disabled>Weiter</button>
-      </div>
-    </div>
-    
-    <!-- Question 5 (hidden) -->
-    <div class="card" id="q5" style="display:none!important;">
-      <div class="question">Bildschirmzeit NACH 21 Uhr?</div>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 4)" data-value="0">Nie</div>
-        <div class="option" onclick="selectOption(this, 4)" data-value="1"><30 Min</div>
-        <div class="option" onclick="selectOption(this, 4)" data-value="2">30–60 Min</div>
-        <div class="option" onclick="selectOption(this, 4)" data-value="3">>60 Min</div>
-      </div>
-      <div class="btn-container">
-        <button class="btn btn-back" onclick="prevQuestion(5, 4)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(5, 6)" id="q5-next" disabled>Weiter</button>
-      </div>
-    </div>
-    
-    <!-- Question 6 (Email) -->
+    <!-- Email Input -->
     <div class="card" id="qLead">
       <div class="question">Wohin dürfen wir deinen Schlaf-Report schicken?</div>
       <div style="padding: 0 24px;">
@@ -341,7 +251,7 @@
       </div>
     </div>
     
-    <!-- Question 7 (Phone) -->
+    <!-- Phone Input (Optional) -->
     <div class="card" id="q7">
       <div class="question">Optional: Handy-Nr. für SMS-Reminder?</div>
       <div style="padding: 0 24px;">
@@ -355,29 +265,15 @@
     
     <!-- Results -->
     <div class="card" id="result">
-      <h2 id="result-title"></h2>
-      <div id="result-description"></div>
-      <button class="btn" id="btnPay" onclick="showModal()">Starte jetzt für 27 €</button>
-      <p class="disclaimer" id="result-disclaimer"></p>
+      <div class="result">
+        <h2 id="result-title"></h2>
+        <div id="result-description"></div>
+        <button class="btn" id="btnPay" onclick="proceedToPayment()">Starte jetzt für 27 €</button>
+        <p class="disclaimer" id="result-disclaimer"></p>
+      </div>
     </div>
   </div>
   
-  <!-- Payment Modal -->
-  <div class="modal" id="payment-modal">
-    <div class="modal-content">
-      <div class="modal-title">Bestätigung</div>
-      <div class="checkbox-container">
-        <input type="checkbox" id="waive-rights" onchange="toggleButton()">
-        <label for="waive-rights">Ich verlange die sofortige Bereitstellung der digitalen Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs. 5 BGB).</label>
-      </div>
-      <div class="btn-container">
-        <button class="btn btn-back" onclick="closeModal()">Abbrechen</button>
-        <button class="btn" id="btnGo" disabled onclick="proceedToPayment()">Weiter zur Zahlung</button>
-      </div>
-      <p class="fine-print">Einmalzahlung €27 - keine versteckten Kosten</p>
-    </div>
-  </div>
-
   <script>
     // Get refID from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -415,23 +311,6 @@
       if (nextButton) {
         nextButton.disabled = false;
       }
-    }
-    
-    // Scale selection handler
-    function selectScale(element, value) {
-      // Remove selected class from all siblings
-      const parent = element.parentElement;
-      const options = parent.querySelectorAll('.scale-option');
-      options.forEach(opt => opt.classList.remove('selected'));
-      
-      // Add selected class to clicked option
-      element.classList.add('selected');
-      
-      // Store value (6 - scale value for Q4)
-      quizData.answers[3] = 6 - value;
-      
-      // Enable next button
-      document.getElementById('q4-next').disabled = false;
     }
     
     // Email validation
@@ -479,7 +358,7 @@
     
     // Update progress bar
     function updateProgressBar() {
-      const totalQuestions = 5; // Reduced from 7 to 5 as we've hidden Q4 and Q5
+      const totalQuestions = 5; // Total number of steps including email and phone
       const progressPercent = ((currentQuestion - 1) / totalQuestions) * 100;
       document.getElementById('progress').style.width = `${progressPercent}%`;
     }
@@ -567,19 +446,6 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({email: quizData.email, phone: quizData.phone, score: quizData.score, outcome: quizData.outcome})
       }).catch(console.error);
-    }
-    
-    // Modal functions
-    function showModal() {
-      document.getElementById('payment-modal').style.display = 'flex';
-    }
-    
-    function closeModal() {
-      document.getElementById('payment-modal').style.display = 'none';
-    }
-    
-    function toggleButton() {
-      document.getElementById('btnGo').disabled = !document.getElementById('waive-rights').checked;
     }
     
     // Handle payment

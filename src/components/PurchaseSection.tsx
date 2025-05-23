@@ -45,38 +45,8 @@ const PurchaseSection: React.FC = () => {
           <Card className="border-none shadow-2xl overflow-hidden">
             <CardContent className="p-0">
               <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-7/12 p-6 md:p-8">
-                  <h3 className="text-2xl font-bold mb-2">{language === "de" ? "Das komplette Licht Sprint System" : t("complete.system")}</h3>
-                  <p className="text-gray-600 mb-6">
-                    {language === "de" ? "Alles was du brauchst, um deine Energie und Schlafqualität zu verbessern" : t("everything.you.need")}
-                  </p>
-                  
-                  <table className="w-full max-w-md border-collapse mb-6">
-                    <thead>
-                      <tr>
-                        <th colSpan={3} className="text-left pb-2">Dein heutiges Paket für €27:</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="py-1">„Sprint-Prep" Checkliste PDF</td>
-                        <td className="py-1 px-2"><i>sofort</i></td>
-                        <td className="py-1 text-right"><b>€19</b></td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">Completion-Call Garantie</td>
-                        <td className="py-1 px-2"><i>sofort</i></td>
-                        <td className="py-1 text-right"><b>€297</b></td>
-                      </tr>
-                      <tr className="bg-yellow-50">
-                        <td className="py-1 font-bold">WERT HEUTE (Systemzugang & Orientierung)</td>
-                        <td></td>
-                        <td className="py-1 text-right font-bold">€459</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  
-                  <h2 className="text-xl md:text-2xl font-bold mb-6">DEIN PREIS JETZT <i>€27</i> (-94 %)</h2>
+                <div className="w-full md:w-1/2 p-6 md:p-8 bg-white">
+                  <h3 className="text-2xl font-bold mb-4">{language === "de" ? "Das komplette Licht Sprint System" : t("complete.system")}</h3>
                   
                   <div className="space-y-3 mb-8">
                     {features.map((feature, index) => (
@@ -87,26 +57,53 @@ const PurchaseSection: React.FC = () => {
                     ))}
                   </div>
                   
-                  <div className="bg-light-peach p-4 rounded-lg text-center mb-6">
+                  <div className="bg-light-peach p-4 rounded-lg mb-6">
                     <p className="text-sm">
-                      <span className="font-semibold">{language === "de" ? "7-Tage-Ergebnis-Versprechen:" : "Our Satisfaction Promise:"}</span> {language === "de" 
-                      ? "Erfülle alle 5 Schritte, und du erhältst einen kostenlosen 20-Min 1-zu-1 Analyse-Call (Wert €297). Details in der " 
-                      : "If you don't notice significant improvements in your energy and focus levels within 7 days, we'll work with you to adjust your protocol or provide a full refund. See our "}
-                      <Link to="/garantie.html" className="text-bright-orange hover:underline">Ergebnis-Garantie</Link>.
+                      <span className="font-semibold">{language === "de" ? "7-Tage-Ergebnis-Versprechen:" : "Our Satisfaction Promise:"}</span>{" "}
+                      <span>Bezwing deinen Morgen-Zombie in 7 Tagen </span>
+                      <Link to="/garantie" className="text-bright-orange hover:underline">
+                        – oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁
+                      </Link>
                     </p>
                   </div>
                 </div>
                 
-                <div className="w-full md:w-5/12 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white flex flex-col justify-center">
+                <div className="w-full md:w-1/2 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white">
                   <div className="text-center">
-                    <p className="text-2xl mb-1">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
+                    <p className="text-xl mb-2">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
+                    <h2 className="text-3xl font-bold mb-4">€27 <span className="text-lg">(-94%)</span></h2>
                     
-                    <div className="flex items-start space-x-2 mt-4 mb-4">
+                    <table className="w-full text-left mb-6 bg-white/10 rounded-lg overflow-hidden">
+                      <thead>
+                        <tr>
+                          <th colSpan={3} className="text-left p-3 bg-white/20">Dein heutiges Paket für €27:</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="p-3">„Sprint-Prep" Checkliste PDF</td>
+                          <td className="p-3"><i>sofort</i></td>
+                          <td className="p-3 text-right"><b>€19</b></td>
+                        </tr>
+                        <tr>
+                          <td className="p-3">Completion-Call Garantie</td>
+                          <td className="p-3"><i>sofort</i></td>
+                          <td className="p-3 text-right"><b>€297</b></td>
+                        </tr>
+                        <tr className="bg-yellow-50/20">
+                          <td className="p-3 font-bold">WERT HEUTE (Systemzugang & Orientierung)</td>
+                          <td></td>
+                          <td className="p-3 text-right font-bold">€459</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                    <div className="flex items-start space-x-2 mt-6 mb-4 bg-white/10 p-3 rounded-lg">
                       <Checkbox 
                         id="terms" 
                         checked={acceptedTerms}
                         onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
-                        className="mt-1"
+                        className="mt-1 bg-white border-white"
                       />
                       <label htmlFor="terms" className="text-sm text-left">
                         Ich verlange die sofortige Bereitstellung digitaler Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs 5 BGB).
@@ -128,7 +125,7 @@ const PurchaseSection: React.FC = () => {
                       <span>·</span>
                       <Link to="/datenschutz" className="text-white hover:underline">Datenschutz</Link>
                       <span>·</span>
-                      <Link to="/garantie.html" className="text-white hover:underline">Ergebnis-Garantie</Link>
+                      <Link to="/garantie" className="text-white hover:underline">Ergebnis-Garantie</Link>
                     </div>
                     
                     <p className="mt-4 text-sm opacity-80">
