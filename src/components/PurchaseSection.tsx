@@ -60,23 +60,35 @@ const PurchaseSection: React.FC = () => {
                   <div className="bg-light-peach p-4 rounded-lg mb-6">
                     <p className="text-sm">
                       <span className="font-semibold">{language === "de" ? "7-Tage-Ergebnis-Versprechen:" : "Our Satisfaction Promise:"}</span>{" "}
-                      <span>Bezwing deinen Morgen-Zombie in 7 Tagen </span>
-                      <Link to="/garantie" className="text-bright-orange hover:underline">
-                        – oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁
+                      <Link to="/garantie" className="hover:underline">
+                        <span>Bezwing deinen Morgen-Zombie in 7 Tagen </span>
+                        <span className="text-bright-orange">– oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁</span>
                       </Link>
                     </p>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                    <p className="text-sm font-medium mb-2">Kannst du es dir leisten, NICHT zu investieren?</p>
+                    <div id="calc">  
+                      <p className="text-sm">  
+                        Kaffee & Energy Drinks: 2 × €2,50 × 90 Tage = <b>€450</b><br />  
+                        Licht-Reset PRO: <b>€179</b><br />  
+                        → Du sparst €271 und schläfst besser.  
+                      </p>
+                    </div>
                   </div>
                 </div>
                 
                 <div className="w-full md:w-1/2 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white">
                   <div className="text-center">
                     <p className="text-xl mb-2">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
-                    <h2 className="text-3xl font-bold mb-4">€27 <span className="text-lg">(-94%)</span></h2>
+                    <h2 className="text-3xl font-bold mb-4">€15 <span className="text-lg">+19% MwSt (-94%)</span></h2>
                     
                     <table className="w-full text-left mb-6 bg-white/10 rounded-lg overflow-hidden">
                       <thead>
                         <tr>
-                          <th colSpan={3} className="text-left p-3 bg-white/20">Dein heutiges Paket für €27:</th>
+                          <th colSpan={2} className="text-left p-3 bg-white/20">Dein heutiges Paket für €15:</th>
+                          <th className="p-3 bg-white/20 text-right">Wert:</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -87,7 +99,7 @@ const PurchaseSection: React.FC = () => {
                         </tr>
                         <tr>
                           <td className="p-3">Kompletter 7-Tage Licht-Sprint [7 Audio Lektionen + PDF Workbook]</td>
-                          <td></td>
+                          <td className="p-3"><i>sofort</i></td>
                           <td className="p-3 text-right"><b>€115</b></td>
                         </tr>
                         <tr>

@@ -268,7 +268,7 @@
       <div class="result">
         <h2 id="result-title"></h2>
         <div id="result-description"></div>
-        <button class="btn" id="btnPay" onclick="proceedToPayment()">Starte jetzt für 27 €</button>
+        <button class="btn" id="btnPay" onclick="proceedToPayment()">Starte jetzt für 15 €</button>
         <p class="disclaimer" id="result-disclaimer"></p>
       </div>
     </div>
@@ -282,7 +282,7 @@
     
     // Quiz data storage
     const quizData = {
-      answers: [null, null, null, null, null],
+      answers: [null, null, null],
       email: '',
       phone: '',
       outcome: '',
@@ -311,6 +311,16 @@
       if (nextButton) {
         nextButton.disabled = false;
       }
+      
+      // Auto progress after a brief delay
+      setTimeout(() => {
+        const nextBtn = document.getElementById(`q${questionIndex + 1}-next`);
+        if (nextBtn && !nextBtn.disabled) {
+          if (questionIndex === 0) nextQuestion(1, 2);
+          else if (questionIndex === 1) nextQuestion(2, 3);
+          else if (questionIndex === 2) nextQuestion(3, 6);
+        }
+      }, 800);
     }
     
     // Email validation
@@ -369,7 +379,7 @@
       quizData.phone = document.getElementById('leadPhone').value.trim();
       
       // Calculate score (only using Q1-Q3 now)
-      quizData.score = quizData.answers.slice(0, 3).reduce((a, b) => a + (b || 0), 0);
+      quizData.score = quizData.answers.reduce((a, b) => a + (b || 0), 0);
       
       // Determine outcome
       let outcome, title, description, disclaimer;
@@ -450,7 +460,7 @@
     
     // Handle payment
     function proceedToPayment() {
-      // Redirect to Stripe
+      // Redirect to Stripe with updated price
       const stripeUrl = `https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601?prefilled_email=${encodeURIComponent(quizData.email)}&client_reference_id=${encodeURIComponent(quizData.refID)}`;
       window.location.href = stripeUrl;
     }
