@@ -48,6 +48,11 @@ const HeroSection: React.FC = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               Schlafe 30 Min schneller ein in 7 Tagen - mit nur 10 Minuten Morgensonne
             </h1>
+            
+            {/* Guarantee text added here */}
+            <h2 className="text-xl md:text-2xl font-semibold text-bright-orange mb-4">
+              Bezwing deinen Morgen-Zombie in 7 Tagen – oder kassier einen 20-Min 1-zu-1 Analyse-Call 🎁
+            </h2>
 
             <ul id="benefits" style={{margin: "18px 0 24px 0", fontWeight: 600, lineHeight: 1.4}}>
               <li>–60 % Coffee-Cravings in 48 h</li>

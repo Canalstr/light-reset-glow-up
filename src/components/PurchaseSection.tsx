@@ -71,7 +71,8 @@ const PurchaseSection: React.FC = () => {
                 <div className="w-full md:w-1/2 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white">
                   <div className="text-center">
                     <p className="text-xl mb-2">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
-                    <h2 className="text-3xl font-bold mb-4">€15 <span className="text-lg">+19% MwSt (-94%)</span></h2>
+                    <h2 className="text-3xl font-bold mb-1">€15 <span className="text-lg">(-94%)</span></h2>
+                    <p className="text-sm mb-4">€15 heute → €199 pro Quartal nach 7 Tagen, + 19% MwSt</p>
                     
                     <table className="w-full text-left mb-6 bg-white/10 rounded-lg overflow-hidden">
                       <thead>

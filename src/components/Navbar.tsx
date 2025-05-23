@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const { t } = useLanguage();
   
   const openQuiz = () => {
-    window.open("https://lightreset.net/quiz?refID=site", "_blank");
+    window.open("/quiz", "_blank");
   };
 
   return (
