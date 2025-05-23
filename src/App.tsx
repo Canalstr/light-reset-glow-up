@@ -15,6 +15,7 @@ import Widerruf from "./pages/Widerruf";
 import Upgrade from "./pages/Upgrade";
 import EliteKit from "./pages/EliteKit";
 import Thanks from "./pages/Thanks";
+import Garantie from "./pages/Garantie";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/widerruf" element={<Widerruf />} />
             <Route path="/upgrade" element={<Upgrade />} />
             <Route path="/elite-kit" element={<EliteKit />} />
+            <Route path="/garantie" element={<Garantie />} />
             <Route path="/garantie.html" element={<Navigate to="/garantie" replace />} />
             <Route path="/quiz" element={<div />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

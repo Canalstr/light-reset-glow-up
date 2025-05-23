@@ -12,7 +12,7 @@ const PurchaseSection: React.FC = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   
   const features = [
-    "Kompletter 7-Tage Licht-Sprint [7 Video Lektionen + PDF Workbook]",
+    "Kompletter 7-Tage Licht-Sprint [7 Audio Lektionen + PDF Workbook]",
     "Community Chat",
     "Persönliche Licht Timing Empfehlungen",
     "Tägliche Umsetzungsguides",
@@ -81,19 +81,33 @@ const PurchaseSection: React.FC = () => {
                       </thead>
                       <tbody>
                         <tr>
-                          <td className="p-3">„Sprint-Prep" Checkliste PDF</td>
+                          <td className="p-3">„Sprint-Prep" Snack PDF</td>
                           <td className="p-3"><i>sofort</i></td>
-                          <td className="p-3 text-right"><b>€19</b></td>
+                          <td className="p-3 text-right"><b>€54</b></td>
+                        </tr>
+                        <tr>
+                          <td className="p-3">Kompletter 7-Tage Licht-Sprint [7 Audio Lektionen + PDF Workbook]</td>
+                          <td></td>
+                          <td className="p-3 text-right"><b>€115</b></td>
+                        </tr>
+                        <tr>
+                          <td className="p-3">Persönliche Reminder</td>
+                          <td className="p-3"><i>sofort</i></td>
+                          <td className="p-3 text-right"><b>€30</b></td>
                         </tr>
                         <tr>
                           <td className="p-3">Completion-Call Garantie</td>
                           <td className="p-3"><i>sofort</i></td>
                           <td className="p-3 text-right"><b>€297</b></td>
                         </tr>
-                        <tr className="bg-yellow-50/20">
-                          <td className="p-3 font-bold">WERT HEUTE (Systemzugang & Orientierung)</td>
+                        <tr>
+                          <td className="p-3" colSpan={2}>+ laufende Updates + Überraschungen</td>
                           <td></td>
-                          <td className="p-3 text-right font-bold">€459</td>
+                        </tr>
+                        <tr className="bg-yellow-50/20">
+                          <td className="p-3 font-bold">WERT HEUTE</td>
+                          <td></td>
+                          <td className="p-3 text-right font-bold">€496</td>
                         </tr>
                       </tbody>
                     </table>

@@ -8,8 +8,8 @@ const QuizSection: React.FC = () => {
   const { t } = useLanguage();
   
   const openQuiz = () => {
-    // Using the new quiz URL
-    window.open("https://lightreset.net/quiz?refID=site", "_blank");
+    // Open quiz in a new tab
+    window.open("/quiz", "_blank");
   };
 
   return (
