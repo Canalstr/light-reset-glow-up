@@ -47,10 +47,6 @@
   </head>
 
   <body>
-    <div id="priceTimer" style="font-weight:700;margin:18px 0">
-      Preis steigt in <span id="ttl">03:54:12</span>
-    </div>
-    
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
@@ -62,27 +58,6 @@
      function t(){const s=86400-(new Date().getHours()*3600+new Date().getMinutes()*60+new Date().getSeconds());
       var timerEl = document.getElementById('ttl'); if(timerEl){timerEl.textContent=[s/3600|0,(s%3600)/60|0,s%60|0].map(v=>String(v).padStart(2,'0')).join(':');}}
      setInterval(t,1000);t();}
-    </script>
-
-    <!-- PURCHASE-POP BUBBLES -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script>
-    if(!window.lrPops){window.lrPops=true;
-     fetch('https://purchasepop.konstantin-5a3.workers.dev/')
-       .then(r=>r.json()).then(a=>{if(typeof Notyf !== 'undefined'){const n=new Notyf({delay:6e3});let i=0;
-         setInterval(()=>n.success(a[i++%a.length]),9e3);}}).catch(console.error);}
-    </script>
-
-    <!-- EXIT-INTENT FLASH-COUPON -->
-    <script>
-    if(!window.lrExit){window.lrExit=true;
-     let flashed=false;
-     window.addEventListener('mouseout',e=>{
-       if(e.clientY<0 && !flashed){flashed=true;
-         if(confirm('⚡ 15 % Sofort-Rabatt – 10 Min gültig!'))
-           location.href='https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601?coupon=FLASH15';
-     }});}
     </script>
   </body>
 </html>

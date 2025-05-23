@@ -71,9 +71,10 @@ const PurchaseSection: React.FC = () => {
                   
                   <div className="bg-light-peach p-4 rounded-lg text-center mb-6">
                     <p className="text-sm">
-                      <span className="font-semibold">{language === "de" ? "Unser Zufriedenheitsversprechen:" : "Our Satisfaction Promise:"}</span> {language === "de" 
-                      ? "Wenn Du innerhalb von 7 Tagen keine signifikanten Verbesserungen deiner Energie und Konzentration bemerkst, arbeiten wir mit dir an der Anpassung deines Protokolls oder erstatten dir den vollen Betrag zurück." 
-                      : "If you don't notice significant improvements in your energy and focus levels within 7 days, we'll work with you to adjust your protocol or provide a full refund."}
+                      <span className="font-semibold">{language === "de" ? "7-Tage-Ergebnis-Versprechen:" : "Our Satisfaction Promise:"}</span> {language === "de" 
+                      ? "Erfülle alle 5 Schritte, und du erhältst einen kostenlosen 20-Min 1-zu-1 Analyse-Call (Wert €297). Details in der " 
+                      : "If you don't notice significant improvements in your energy and focus levels within 7 days, we'll work with you to adjust your protocol or provide a full refund. See our "}
+                      <Link to="/garantie.html" className="text-bright-orange hover:underline">Ergebnis-Garantie</Link>.
                     </p>
                   </div>
                 </div>
@@ -82,12 +83,21 @@ const PurchaseSection: React.FC = () => {
                   <div className="text-center">
                     <p className="text-2xl mb-1">{language === "de" ? "Spezieller Einführungspreis" : t("special.launch")}</p>
                     
-                    <p style={{fontSize:"12px"}}>
-                      ☑ Ich verlange die sofortige Bereitstellung digitaler Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs 5 BGB).
-                    </p>
+                    <div className="flex items-start space-x-2 mt-4 mb-4">
+                      <Checkbox 
+                        id="terms" 
+                        checked={acceptedTerms}
+                        onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
+                        className="mt-1"
+                      />
+                      <label htmlFor="terms" className="text-sm text-left">
+                        Ich verlange die sofortige Bereitstellung digitaler Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs 5 BGB).
+                      </label>
+                    </div>
                     
                     <Button 
-                      onClick={() => window.open("https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601", "_blank")} 
+                      onClick={handlePurchase}
+                      disabled={!acceptedTerms}
                       className="w-full bg-white text-bright-orange hover:bg-light-yellow hover:text-bright-orange text-lg py-6 mt-4"
                     >
                       {t("start.your")}

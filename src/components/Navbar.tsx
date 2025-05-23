@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white bg-opacity-90 backdrop-blur-sm py-4 fixed w-full z-50 shadow-sm">
+    <nav className="bg-white bg-opacity-90 backdrop-blur-sm py-4 w-full z-50 shadow-sm">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="flex items-center">

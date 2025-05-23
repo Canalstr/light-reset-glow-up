@@ -55,11 +55,6 @@ const HeroSection: React.FC = () => {
               <li>+30 min REM-Schlaf Ø</li>
               <li>Erprobt an 3 274 Bio-Hackern</li>
             </ul>
-
-            {/* New subheadline */}
-            <p className="text-lg md:text-xl mb-6 text-gray-700">
-              {t("no.pills")}
-            </p>
             
             {/* Legal disclaimer */}
             <p className="text-sm text-gray-600 mb-4 italic">
