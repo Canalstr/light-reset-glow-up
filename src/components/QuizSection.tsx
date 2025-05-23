@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,7 +8,13 @@ const QuizSection: React.FC = () => {
   const { t } = useLanguage();
   
   const openQuiz = () => {
-    // Open quiz in a new tab
+    // Open quiz in a new tab with preload hint
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.href = '/quiz/styles.css';
+    link.as = 'style';
+    document.head.appendChild(link);
+    
     window.open("/quiz", "_blank");
   };
 
@@ -59,6 +65,14 @@ const QuizSection: React.FC = () => {
                   <Button 
                     onClick={openQuiz} 
                     className="btn-primary animate-glow text-lg py-6 px-6 md:px-10"
+                    onMouseOver={() => {
+                      // Preload quiz assets on hover
+                      const preloadLink = document.createElement('link');
+                      preloadLink.rel = 'preload';
+                      preloadLink.href = '/quiz/quiz-data.js';
+                      preloadLink.as = 'script';
+                      document.head.appendChild(preloadLink);
+                    }}
                   >
                     {t("take.quiz.45").replace("den", "das")}
                   </Button>

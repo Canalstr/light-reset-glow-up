@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schlaf-Quiz | The Light Reset</title>
+  <!-- Preconnect to domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="dns-prefetch" href="https://script.google.com">
+  <!-- Preloads and Critical CSS -->
   <link rel="stylesheet" href="styles.css">
-  <script src="quiz-data.js" defer></script>
 </head>
 <body>
   <input type="hidden" id="refID" name="refID" value="">
@@ -21,6 +25,10 @@
     </div>
   </div>
   
+  <!-- Deferred scripts at the end of body -->
+  <script src="quiz-data.js" defer></script>
+  <script src="quiz-ui.js" defer></script>
+  <script src="quiz-logic.js" defer></script>
   <script>
     // Initialize page as soon as DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
@@ -36,7 +44,5 @@
       console.log("Quiz initialized successfully");
     });
   </script>
-  <script src="quiz-ui.js" defer></script>
-  <script src="quiz-logic.js" defer></script>
 </body>
 </html>

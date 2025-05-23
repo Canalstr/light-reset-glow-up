@@ -202,6 +202,14 @@ function completeQuiz() {
 function proceedToPayment() {
   console.log("Proceeding to payment");
   
+  // Check if terms checkbox is checked
+  const termsCheckbox = document.getElementById('terms-checkbox');
+  if (!termsCheckbox || !termsCheckbox.checked) {
+    alert('Bitte akzeptieren Sie die Bedingungen zum Widerrufsrecht.');
+    console.log("Terms not accepted");
+    return;
+  }
+  
   // Redirect to Stripe with updated price and email
   const stripeUrl = `https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601?prefilled_email=${encodeURIComponent(quizData.email)}&client_reference_id=${encodeURIComponent(quizData.refID)}`;
   console.log("Redirecting to:", stripeUrl);

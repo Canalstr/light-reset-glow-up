@@ -191,11 +191,45 @@ function createResultCard() {
   const description = document.createElement('div');
   description.id = 'result-description';
   
+  // Add terms checkbox container
+  const termsContainer = document.createElement('div');
+  termsContainer.className = 'terms-container';
+  termsContainer.style = 'display: flex; align-items: start; margin: 20px 0; gap: 10px; background: rgba(255,138,61,0.1); padding: 12px; border-radius: 8px;';
+  
+  // Add checkbox
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.id = 'terms-checkbox';
+  checkbox.style = 'margin-top: 3px;';
+  
+  // Add terms text
+  const termsLabel = document.createElement('label');
+  termsLabel.htmlFor = 'terms-checkbox';
+  termsLabel.style = 'font-size: 14px; display: block;';
+  termsLabel.textContent = 'Ich verlange die sofortige Bereitstellung digitaler Inhalte und verliere mein 14-tägiges Widerrufsrecht (§ 356 Abs 5 BGB).';
+  
+  termsContainer.appendChild(checkbox);
+  termsContainer.appendChild(termsLabel);
+  
   const payButton = document.createElement('button');
   payButton.className = 'btn';
   payButton.id = 'btnPay';
   payButton.textContent = 'Starte jetzt für 15 €';
-  payButton.onclick = proceedToPayment;
+  payButton.disabled = true;
+  payButton.style.opacity = '0.5';
+  payButton.style.cursor = 'not-allowed';
+  
+  // Add event listener to the checkbox to enable/disable the button
+  checkbox.addEventListener('change', function() {
+    payButton.disabled = !this.checked;
+    payButton.style.opacity = this.checked ? '1' : '0.5';
+    payButton.style.cursor = this.checked ? 'pointer' : 'not-allowed';
+  });
+  
+  // Add pricing text below button
+  const pricingText = document.createElement('p');
+  pricingText.style = 'font-size: 12px; margin-top: 8px; text-align: center; opacity: 0.8;';
+  pricingText.textContent = '€15 heute → €199 pro Quartal nach 7 Tagen, + 19% MwSt';
   
   const disclaimer = document.createElement('p');
   disclaimer.className = 'disclaimer';
@@ -203,7 +237,9 @@ function createResultCard() {
   
   resultContainer.appendChild(title);
   resultContainer.appendChild(description);
+  resultContainer.appendChild(termsContainer);
   resultContainer.appendChild(payButton);
+  resultContainer.appendChild(pricingText);
   resultContainer.appendChild(disclaimer);
   
   card.appendChild(resultContainer);

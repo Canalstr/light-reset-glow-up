@@ -2,31 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Usercentrics Cookie Consent Management -->
-    <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
-    <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="t6ZAAYb-fhtruG" async></script>
-    
-    <!-- TikTok Pixel Code Start -->
-    <script>
-    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready",
-    "alias","group","enableCookie","disableCookie","holdConsent","revokeConsent",
-    "grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){
-    t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-    ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)
-    ttq.setAndDefer(e,ttq.methods[n]);return e};
-    ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js";
-    ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,
-    ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.async=!0;
-    n.src=r+"?sdkid="+e+"&lib="+t;
-    d.getElementsByTagName("script")[0].parentNode.insertBefore(n,
-    d.getElementsByTagName("script")[0])};
-    ttq.load('D0I8M2JC77U1A2BMQ7MG');ttq.page();
-    }(window,document,'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
-  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The LIGHT RESET - Energy, Sleep & Focus</title>
@@ -42,15 +17,47 @@
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
+    <!-- Preconnects for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://web.cmp.usercentrics.eu">
+    <link rel="preconnect" href="https://analytics.tiktok.com">
+    
     <!-- Sun favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>" type="image/svg+xml">
+    
+    <!-- Critical CSS inline (just a snippet of the most critical styles) -->
+    <style>
+      :root {
+        --sun-yellow: #FFD43B;
+        --bright-orange: #FF7800;
+        --light-yellow: #FFF8E1;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      #priceTimer {
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: bold;
+      }
+    </style>
+    
+    <!-- Main CSS with lower priority -->
+    <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
   </head>
 
   <body>
     <div id="root"></div>
+    
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Main application script with defer -->
+    <script type="module" src="/src/main.tsx" defer></script>
     
     <!-- NIGHTLY COUNTDOWN -->
     <script>
@@ -59,5 +66,33 @@
       var timerEl = document.getElementById('ttl'); if(timerEl){timerEl.textContent=[s/3600|0,(s%3600)/60|0,s%60|0].map(v=>String(v).padStart(2,'0')).join(':');}}
      setInterval(t,1000);t();}
     </script>
+    
+    <!-- Usercentrics and TikTok scripts at the end for faster initial load -->
+    <!-- Usercentrics Cookie Consent Management -->
+    <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" defer></script>
+    <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="t6ZAAYb-fhtruG" async></script>
+    
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready",
+      "alias","group","enableCookie","disableCookie","holdConsent","revokeConsent",
+      "grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){
+      t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+      ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)
+      ttq.setAndDefer(e,ttq.methods[n]);return e};
+      ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+      ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,
+      ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.async=!0;
+      n.src=r+"?sdkid="+e+"&lib="+t;
+      d.getElementsByTagName("script")[0].parentNode.insertBefore(n,
+      d.getElementsByTagName("script")[0])};
+      ttq.load('D0I8M2JC77U1A2BMQ7MG');ttq.page();
+      }(window,document,'ttq');
+    });
+    </script>
+    <!-- TikTok Pixel Code End -->
   </body>
 </html>

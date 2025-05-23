@@ -1,10 +1,43 @@
 
-<!doctype html><html lang="de"><head>
-<meta charset="utf-8"><title>Fast-Pass Upgrade</title>
-<link rel="stylesheet" href="/src/index.css">
-</head><body>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Fast-Pass Upgrade</title>
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  
+  <!-- Critical inline styles -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f5f5f7;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .bright-orange {
+      color: #FF8A3D;
+    }
+    .bg-bright-orange {
+      background-color: #FF8A3D;
+    }
+  </style>
+  
+  <!-- Defer non-critical CSS -->
+  <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
+</head>
+<body>
 <div class="container mx-auto px-4 py-12">
-<div style="max-width: 700px; margin: 20px auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+<div style="max-width: 700px; margin: 20px auto; padding: 20px; border: 1px solid #eee; border-radius: 8px; background: white;">
 <h2 class="text-3xl md:text-4xl font-bold mb-6">🚀 Fast-Pass – 90 Tage sofort frei­schalten</h2>
 <ul class="mb-6 space-y-2">
   <li>Voller Zugriff auf 12 Module, Q&As, Bot & Boni <i>jetzt</i></li>
@@ -29,36 +62,46 @@
 </div>
 </div>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- Load Tailwind at the end for better initial page load -->
+<script src="https://cdn.tailwindcss.com" defer></script>
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          'bright-orange': '#FF8A3D',
+  // Wait for DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tailwind config
+    if(window.tailwind) {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bright-orange': '#FF8A3D',
+            }
+          }
         }
       }
     }
-  }
-  
-  // Add functionality for the checkbox and button
-  const checkbox = document.getElementById('terms-checkbox');
-  const button = document.getElementById('purchase-button');
-  
-  checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      button.disabled = false;
-      button.classList.remove('opacity-50', 'cursor-not-allowed');
-    } else {
-      button.disabled = true;
-      button.classList.add('opacity-50', 'cursor-not-allowed');
-    }
-  });
-  
-  button.addEventListener('click', function() {
-    if (!button.disabled) {
-      window.location.href = 'https://whop.com/checkout/plan_tJQZMYm4PJC6q/';
+    
+    // Add functionality for the checkbox and button
+    const checkbox = document.getElementById('terms-checkbox');
+    const button = document.getElementById('purchase-button');
+    
+    if(checkbox && button) {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          button.disabled = false;
+          button.classList.remove('opacity-50', 'cursor-not-allowed');
+        } else {
+          button.disabled = true;
+          button.classList.add('opacity-50', 'cursor-not-allowed');
+        }
+      });
+      
+      button.addEventListener('click', function() {
+        if (!button.disabled) {
+          window.location.href = 'https://whop.com/checkout/plan_tJQZMYm4PJC6q/';
+        }
+      });
     }
   });
 </script>
-</body></html>
+</body>
+</html>
