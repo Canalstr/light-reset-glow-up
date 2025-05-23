@@ -30,6 +30,7 @@ const Footer: React.FC = () => {
             <Link to="/agb" className="text-gray-600 hover:text-bright-orange transition-colors">AGB</Link>
             <Link to="/widerruf" className="text-gray-600 hover:text-bright-orange transition-colors">Widerruf</Link>
             <Link to="/datenschutz" className="text-gray-600 hover:text-bright-orange transition-colors">Datenschutz</Link>
+            <Link to="/garantie.html" className="text-gray-600 hover:text-bright-orange transition-colors">Ergebnis-Garantie</Link>
             <a href="#" className="text-gray-600 hover:text-bright-orange transition-colors">{t("contact")}</a>
           </div>
         </div>

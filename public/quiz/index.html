@@ -276,12 +276,12 @@
       </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(3, 2)">Zurück</button>
-        <button class="btn" onclick="nextQuestion(3, 4)" id="q3-next">Weiter</button>
+        <button class="btn" onclick="nextQuestion(3, 6)" id="q3-next">Weiter</button>
       </div>
     </div>
     
-    <!-- Question 4 -->
-    <div class="card" id="q4">
+    <!-- Question 4 (hidden) -->
+    <div class="card" id="q4" style="display:none!important;">
       <div class="question">Wie oft siehst du morgens echte Sonne BEVOR du Indoor-Licht siehst?</div>
       <div class="scale">
         <div class="scale-option" onclick="selectScale(this, 1)" data-value="1">
@@ -311,8 +311,8 @@
       </div>
     </div>
     
-    <!-- Question 5 -->
-    <div class="card" id="q5">
+    <!-- Question 5 (hidden) -->
+    <div class="card" id="q5" style="display:none!important;">
       <div class="question">Bildschirmzeit NACH 21 Uhr?</div>
       <div class="options">
         <div class="option" onclick="selectOption(this, 4)" data-value="0">Nie</div>
@@ -327,11 +327,11 @@
     </div>
     
     <!-- Question 6 (Email) -->
-    <div class="card" id="q6">
+    <div class="card" id="qLead">
       <div class="question">Wohin dürfen wir deinen Schlaf-Report schicken?</div>
       <input type="email" id="email" placeholder="deine@email.de" required>
       <div class="btn-container">
-        <button class="btn btn-back" onclick="prevQuestion(6, 5)">Zurück</button>
+        <button class="btn btn-back" onclick="prevQuestion(6, 3)">Zurück</button>
         <button class="btn" onclick="validateEmail()" id="q6-next">Weiter</button>
       </div>
     </div>
@@ -339,7 +339,7 @@
     <!-- Question 7 (Phone) -->
     <div class="card" id="q7">
       <div class="question">Optional: Handy-Nr. für SMS-Reminder?</div>
-      <input type="tel" id="phone" placeholder="+49 123 4567890">
+      <input type="tel" id="leadPhone" placeholder="+49 123 4567890">
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(7, 6)">Zurück</button>
         <button class="btn" onclick="completeQuiz()">Ergebnisse anzeigen</button>
@@ -347,13 +347,11 @@
     </div>
     
     <!-- Results -->
-    <div class="card" id="result">
-      <div class="result">
-        <h2 id="result-title"></h2>
-        <div id="result-description"></div>
-        <button class="btn" id="btnPay" onclick="showModal()">Starte jetzt für 15 €</button>
-        <p class="disclaimer" id="result-disclaimer"></p>
-      </div>
+    <div class="result" id="result">
+      <h2 id="result-title"></h2>
+      <div id="result-description"></div>
+      <button class="btn" id="btnPay" onclick="showModal()">Starte jetzt für 15 €</button>
+      <p class="disclaimer" id="result-disclaimer"></p>
     </div>
   </div>
   
@@ -414,7 +412,11 @@
       // Auto-progress to next question after brief delay
       setTimeout(() => {
         if (questionIndex < 5) { // Only auto-progress for questions 1-5
-          nextQuestion(questionIndex + 1, questionIndex + 2);
+          if (questionIndex === 2) { // Skip Q4 and Q5 after Q3
+            nextQuestion(questionIndex + 1, 6);
+          } else {
+            nextQuestion(questionIndex + 1, questionIndex + 2);
+          }
         }
       }, 500);
     }
@@ -458,21 +460,35 @@
     // Navigation functions
     function nextQuestion(current, next) {
       document.getElementById(`q${current}`).classList.remove('active');
-      document.getElementById(`q${next}`).classList.add('active');
+      if (next === 6) {
+        document.getElementById('qLead').classList.add('active');
+      } else {
+        document.getElementById(`q${next}`).classList.add('active');
+      }
       currentQuestion = next;
       updateProgressBar();
     }
     
     function prevQuestion(current, prev) {
-      document.getElementById(`q${current}`).classList.remove('active');
-      document.getElementById(`q${prev}`).classList.add('active');
-      currentQuestion = prev;
+      if (current === 7) {
+        document.getElementById('q7').classList.remove('active');
+        document.getElementById('qLead').classList.add('active');
+        currentQuestion = 6;
+      } else if (current === 6) {
+        document.getElementById('qLead').classList.remove('active');
+        document.getElementById(`q${prev}`).classList.add('active');
+        currentQuestion = prev;
+      } else {
+        document.getElementById(`q${current}`).classList.remove('active');
+        document.getElementById(`q${prev}`).classList.add('active');
+        currentQuestion = prev;
+      }
       updateProgressBar();
     }
     
     // Update progress bar
     function updateProgressBar() {
-      const totalQuestions = 7;
+      const totalQuestions = 5; // Reduced from 7 to 5 as we've hidden Q4 and Q5
       const progressPercent = ((currentQuestion - 1) / totalQuestions) * 100;
       document.getElementById('progress').style.width = `${progressPercent}%`;
     }
@@ -480,16 +496,16 @@
     // Complete quiz and show results
     function completeQuiz() {
       // Get phone number if provided
-      quizData.phone = document.getElementById('phone').value.trim();
+      quizData.phone = document.getElementById('leadPhone').value.trim();
       
-      // Calculate score
-      quizData.score = quizData.answers.reduce((a, b) => a + b, 0);
+      // Calculate score (only using Q1-Q3 now)
+      quizData.score = quizData.answers.slice(0, 3).reduce((a, b) => a + (b || 0), 0);
       
       // Determine outcome
       let outcome, title, description, disclaimer;
       const disclaimerText = "*Ergebnisse können individuell variieren. Kein medizinischer Rat; bei ernsthaften Schlafstörungen bitte Arzt konsultieren.";
       
-      if (quizData.score <= 5) {
+      if (quizData.score <= 3) {
         outcome = 'early_bird';
         title = 'Frühaufsteher';
         description = `
@@ -505,7 +521,7 @@
           
           <p style="margin-top:20px;font-weight:600;">Ergebnis: Mehr Fokus, bessere Laune, weniger Kaffee-Crash – garantiert oder Geld zurück.</p>
         `;
-      } else if (quizData.score >= 12) {
+      } else if (quizData.score >= 6) {
         outcome = 'night_owl';
         title = 'Späte Eule';
         description = `
@@ -553,6 +569,13 @@
       
       // Update progress to 100%
       document.getElementById('progress').style.width = '100%';
+      
+      // Send lead data to Google script
+      fetch('https://script.google.com/macros/s/AKfycbwcC9MwWaDkfDMQ82Y1kg6MuG-GJyHP7nWCKbXD99uZuEWiUUIPT34HyV7NDBuY81As/exec', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: quizData.email, phone: document.getElementById('leadPhone').value, score: quizData.answers})
+      });
     }
     
     // Modal functions
@@ -570,13 +593,6 @@
     
     // Handle payment
     function proceedToPayment() {
-      // Send data to Google script
-      fetch('https://script.google.com/macros/s/AKfycbwcC9MwWaDkfDMQ82Y1kg6MuG-GJyHP7nWCKbXD99uZuEWiUUIPT34HyV7NDBuY81As/exec', {
-        method: 'POST',
-        body: JSON.stringify(quizData)
-      })
-      .catch(error => console.error('Error sending data:', error));
-      
       // Redirect to Stripe
       const stripeUrl = `https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601?prefilled_email=${encodeURIComponent(quizData.email)}&client_reference_id=${encodeURIComponent(quizData.refID)}`;
       window.location.href = stripeUrl;

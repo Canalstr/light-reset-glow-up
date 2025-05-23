@@ -48,6 +48,12 @@ const HeroSection: React.FC = () => {
               {t("sleep.faster")}
             </h1>
 
+            <ul id="benefits" style={{margin: "18px 0 24px 0", fontWeight: 600, lineHeight: 1.4}}>
+              <li>–60 % Coffee-Cravings in 48 h</li>
+              <li>+90 min REM-Schlaf Ø</li>
+              <li>Erprobt an 3 274 Bio-Hackern</li>
+            </ul>
+
             {/* New subheadline */}
             <p className="text-lg md:text-xl mb-6 text-gray-700">
               {t("no.pills")}
