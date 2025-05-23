@@ -61,18 +61,6 @@ const Thanks: React.FC = () => {
             }} />
           </div>
           
-          {/* Lifetime Pass section */}
-          <section style={{background:"#ffeef0",padding:"28px",borderRadius:"12px",marginBottom:"28px"}}>
-            <h2 className="text-2xl font-bold mb-2">🎖️ Founder Lifetime Pass – 100 Seats</h2>
-            <p className="mb-4">Nie wieder Gebühren – alle künftigen Updates gratis.</p>
-            <button 
-              className="btn-primary py-3 px-6 rounded-lg" 
-              onClick={() => location.href='https://buy.stripe.com/3cI3cw8Xm0nJfek5L3dZ606'}
-            >
-              Seat sichern €4 999 →
-            </button>
-          </section>
-          
           {/* Additional benefits reminder */}
           <div className="grid md:grid-cols-3 gap-6">
             {[

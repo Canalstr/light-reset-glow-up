@@ -48,13 +48,6 @@ const HeroSection: React.FC = () => {
               {t("sleep.faster")}
             </h1>
 
-            {/* Benefits List - Added after h1 */}
-            <ul id="benefits" style={{margin:"16px 0 24px 0",fontWeight:600,lineHeight:1.4}}>
-              <li>–60 % Coffee-Cravings in 48 h</li>
-              <li>+90 min REM-Schlaf Ø</li>
-              <li>Erprobt an 3 274 Bio-Hackern</li>
-            </ul>
-
             {/* New subheadline */}
             <p className="text-lg md:text-xl mb-6 text-gray-700">
               {t("no.pills")}
@@ -65,13 +58,11 @@ const HeroSection: React.FC = () => {
               Kein Heilversprechen; Bildungsangebot ab 18 Jahren
             </p>
 
-            {/* Updated CTA - Changed to direct link button */}
+            {/* Updated CTA */}
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
-              <Button 
-                onClick={() => location.href='https://buy.stripe.com/4gM00k7Ti9Yj2rya1jdZ601'} 
-                className="btn-primary flex items-center gap-2 text-lg px-6 py-4"
-              >
-                Gleich testen für €27 →
+              <Button onClick={openQuiz} className="btn-primary flex items-center gap-2 text-lg px-6 py-4">
+                {t("take.quiz.45").replace("den", "das")}
+                <ArrowDown size={18} />
               </Button>
             </div>
           </div>
