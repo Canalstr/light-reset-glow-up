@@ -218,6 +218,7 @@ function createResultCard() {
   payButton.disabled = true;
   payButton.style.opacity = '0.5';
   payButton.style.cursor = 'not-allowed';
+  payButton.onclick = proceedToPayment; // Add the onclick handler
   
   // Add event listener to the checkbox to enable/disable the button
   checkbox.addEventListener('change', function() {

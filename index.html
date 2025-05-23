@@ -59,14 +59,6 @@
     <!-- Main application script with defer -->
     <script type="module" src="/src/main.tsx" defer></script>
     
-    <!-- NIGHTLY COUNTDOWN -->
-    <script>
-    if(!window.lrTimer){window.lrTimer=true;
-     function t(){const s=86400-(new Date().getHours()*3600+new Date().getMinutes()*60+new Date().getSeconds());
-      var timerEl = document.getElementById('ttl'); if(timerEl){timerEl.textContent=[s/3600|0,(s%3600)/60|0,s%60|0].map(v=>String(v).padStart(2,'0')).join(':');}}
-     setInterval(t,1000);t();}
-    </script>
-    
     <!-- Usercentrics and TikTok scripts at the end for faster initial load -->
     <!-- Usercentrics Cookie Consent Management -->
     <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js" defer></script>

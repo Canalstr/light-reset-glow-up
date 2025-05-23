@@ -16,9 +16,6 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div id="priceTimer" className="text-center my-4 font-bold">
-        Preis steigt in <span id="ttl">03:54:12</span>
-      </div>
       <HeroSection />
       <VSLSection />
       <ProblemSolutionSection />
