@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const openQuiz = () =>
-    window.open("https://lightreset.net/quiz?refID=site", "_blank");
+    window.open("/quiz", "_blank");
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
             
             {/* Updated headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              {t("sleep.faster")}
+              Schlafe 30 Min schneller ein in 7 Tagen - mit nur 10 Minuten Morgensonne
             </h1>
 
             <ul id="benefits" style={{margin: "18px 0 24px 0", fontWeight: 600, lineHeight: 1.4}}>

@@ -316,9 +316,7 @@
       setTimeout(() => {
         const nextBtn = document.getElementById(`q${questionIndex + 1}-next`);
         if (nextBtn && !nextBtn.disabled) {
-          if (questionIndex === 0) nextQuestion(1, 2);
-          else if (questionIndex === 1) nextQuestion(2, 3);
-          else if (questionIndex === 2) nextQuestion(3, 6);
+          nextBtn.click();
         }
       }, 800);
     }

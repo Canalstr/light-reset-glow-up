@@ -66,17 +66,6 @@ const PurchaseSection: React.FC = () => {
                       </Link>
                     </p>
                   </div>
-
-                  <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                    <p className="text-sm font-medium mb-2">Kannst du es dir leisten, NICHT zu investieren?</p>
-                    <div id="calc">  
-                      <p className="text-sm">  
-                        Kaffee & Energy Drinks: 2 × €2,50 × 90 Tage = <b>€450</b><br />  
-                        Licht-Reset PRO: <b>€179</b><br />  
-                        → Du sparst €271 und schläfst besser.  
-                      </p>
-                    </div>
-                  </div>
                 </div>
                 
                 <div className="w-full md:w-1/2 bg-gradient-to-br from-bright-orange to-sun-yellow p-6 md:p-8 text-white">
