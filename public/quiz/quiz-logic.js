@@ -1,18 +1,4 @@
 
-// Get refID from URL parameter
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("Quiz loading...");
-  
-  const urlParams = new URLSearchParams(window.location.search);
-  const refID = urlParams.get('refID') || '';
-  document.getElementById('refID').value = refID;
-  quizData.refID = refID;
-  
-  // Initialize the UI
-  initQuizUI();
-  console.log("Quiz ready");
-});
-
 // Current question tracking
 let currentQuestion = 1;
 
@@ -51,7 +37,7 @@ function selectOption(element, questionIndex) {
 // Email validation
 function validateEmail() {
   const email = document.getElementById('email').value.trim();
-  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
   if (!emailRegex.test(email)) {
     alert('Bitte gib eine gültige E-Mail-Adresse ein.');
