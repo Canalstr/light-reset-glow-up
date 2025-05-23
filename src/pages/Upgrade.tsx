@@ -41,11 +41,11 @@ const Upgrade: React.FC = () => {
           ✅ Ja, Upgrade sichern
         </a>
 
-        <table style={{margin:"20px auto", borderCollapse:"collapse", fontSize:"14px"}}>
-          <tr><th colSpan={2}>Fast-Pass Bonus Pack (€195)</th></tr>
-          <tr><td>Mealplan PRO</td><td>€79</td></tr>
-          <tr><td>Founder &lt;100 Badge</td><td>€97</td></tr>
-          <tr><td>10 % Rabatt auf Quartal</td><td>€19</td></tr>
+        <table style={{margin:"20px auto", width:"100%", maxWidth:"450px", borderCollapse:"collapse", fontSize:"14px", border:"1px solid #ddd"}}>
+          <tr style={{backgroundColor:"#f2f2f2"}}><th colSpan={2} style={{padding:"8px", textAlign:"left"}}>Fast-Pass Bonus Pack (Wert €195)</th></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Mealplan PRO</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€79</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Founder &lt;100 Badge</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€97</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>10 % Sofort-Rabatt auf Quartal</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€19</td></tr>
         </table>
         
         <a 
@@ -56,18 +56,21 @@ const Upgrade: React.FC = () => {
           Nein danke - Ich bleibe beim Basis-Abo
         </a>
         
-        <table style={{margin:"26px auto", borderCollapse:"collapse", fontSize:"15px"}}>
-          <tr><th colSpan={3}>PRO Quarterly Abo – Start D+7</th></tr>
-          <tr><td>12 Deep-Dive Module (90 Tage)</td><td>ab D+7</td><td>€588</td></tr>
-          <tr><td>AI Chronotype Report</td><td>ab D+7</td><td>€129</td></tr>
-          <tr><td>Weekly Live Q&A</td><td>Day 0</td><td>€468</td></tr>
-          <tr><td>Discord Bot „SunCoach"</td><td>ab D+7</td><td>€192</td></tr>
-          <tr><td>Founder Badge + Private Channel</td><td>ab D+7</td><td>€97</td></tr>
-          <tr><td>€50 Blue-Light Voucher</td><td>ab D+7</td><td>€50</td></tr>
-          <tr><td>High-Lux Mealplan</td><td>Day 0</td><td>€97</td></tr>
-          <tr><td>Light-Score Challenge</td><td>ab D+7</td><td>€198</td></tr>
-          <tr><td>Private Podcast Feed</td><td>ab D+7</td><td>€99</td></tr>
-          <tr style={{background:"#ffe"}}><td><b>WERT</b></td><td></td><td><b>€2 118</b></td></tr>
+        <h3 className="text-2xl font-bold mt-8">Dein PRO Quarterly Abo (Startet an Tag 7 oder sofort mit Fast-Pass)</h3>
+        <p>Wert €2.118 → Gründer-Preis €219 pro Quartal</p>
+        
+        <table style={{margin:"20px auto", width:"100%", maxWidth:"600px", borderCollapse:"collapse", fontSize:"15px"}}>
+          <tr style={{backgroundColor:"#f2f2f2"}}><th style={{padding:"8px", textAlign:"left"}}>Asset</th><th style={{padding:"8px", textAlign:"left"}}>Lieferung</th><th style={{padding:"8px", textAlign:"right"}}>Wert</th></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>12 Deep-Dive Module (90 Tage)</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€588</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>AI Chronotype Report</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€129</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Weekly Live Q&A</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€468</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Discord Bot "SunCoach"</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€192</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Founder Badge + Private Channel</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€97</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>€50 Blue-Light Voucher</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€50</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>High-Lux Mealplan</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€97</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Light-Score Challenge</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€198</td></tr>
+          <tr><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>Private Podcast Feed</td><td style={{padding:"8px", borderTop:"1px solid #ddd"}}>D+7 / Sofort</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right"}}>€99</td></tr>
+          <tr style={{background:"#ffe"}}><td style={{padding:"8px", borderTop:"1px solid #ddd", fontWeight:"bold"}} colSpan={2}>Gesamtwert</td><td style={{padding:"8px", borderTop:"1px solid #ddd", textAlign:"right", fontWeight:"bold"}}>€2.118</td></tr>
         </table>
         
         <div className="mt-8 pt-6 border-t border-gray-200">

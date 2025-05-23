@@ -52,7 +52,6 @@
       transition: width 0.3s ease;
     }
     .card {
-      padding: 32px 24px;
       display: none;
     }
     .card.active {
@@ -68,11 +67,13 @@
       font-weight: 600;
       margin-bottom: 24px;
       color: var(--dark);
+      padding: 32px 24px 0 24px;
     }
     .options {
       display: flex;
       flex-direction: column;
       gap: 16px;
+      padding: 0 24px;
     }
     .option {
       background: var(--secondary);
@@ -93,6 +94,7 @@
       display: flex;
       justify-content: space-between;
       margin-top: 24px;
+      padding: 0 24px 32px 24px;
     }
     .btn {
       background: var(--primary);
@@ -130,6 +132,7 @@
     .result {
       text-align: center;
       padding: 32px 24px;
+      display: none;
     }
     .result h2 {
       margin-bottom: 16px;
@@ -157,6 +160,7 @@
       display: flex;
       justify-content: space-between;
       margin: 24px 0;
+      padding: 0 24px;
     }
     .scale-option {
       display: flex;
@@ -329,7 +333,9 @@
     <!-- Question 6 (Email) -->
     <div class="card" id="qLead">
       <div class="question">Wohin dürfen wir deinen Schlaf-Report schicken?</div>
-      <input type="email" id="email" placeholder="deine@email.de" required>
+      <div style="padding: 0 24px;">
+        <input type="email" id="email" placeholder="deine@email.de" required>
+      </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(6, 3)">Zurück</button>
         <button class="btn" onclick="validateEmail()" id="q6-next">Weiter</button>
@@ -339,7 +345,9 @@
     <!-- Question 7 (Phone) -->
     <div class="card" id="q7">
       <div class="question">Optional: Handy-Nr. für SMS-Reminder?</div>
-      <input type="tel" id="leadPhone" placeholder="+49 123 4567890">
+      <div style="padding: 0 24px;">
+        <input type="tel" id="leadPhone" placeholder="+49 123 4567890">
+      </div>
       <div class="btn-container">
         <button class="btn btn-back" onclick="prevQuestion(7, 6)">Zurück</button>
         <button class="btn" onclick="completeQuiz()">Ergebnisse anzeigen</button>
@@ -563,9 +571,9 @@
       document.getElementById('result-description').innerHTML = description;
       document.getElementById('result-disclaimer').textContent = disclaimerText;
       
-      // Show result screen
+      // Hide lead gate and show results
       document.getElementById('q7').classList.remove('active');
-      document.getElementById('result').classList.add('active');
+      document.getElementById('result').style.display = 'block';
       
       // Update progress to 100%
       document.getElementById('progress').style.width = '100%';
